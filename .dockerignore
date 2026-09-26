@@ -5,7 +5,13 @@ node_modules
 .impeccable/review
 .git
 .env
+.env.*
+.tools
+.openai
 dist
 test-results
+test-results*
+playwright-report
+blob-report
 tests
 *.log

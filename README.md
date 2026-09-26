@@ -174,6 +174,20 @@ El repositorio usa la rama `main` y el remoto `origin`: [maximilianodeppe-coder/
 
 ## Docker
 
+### Publicar en GHCR
+
+El workflow `.github/workflows/docker.yml` construye y publica la imagen en cada push a `main`. También puede ejecutarse desde **Actions → Publicar imagen Docker → Run workflow**, seleccionando `main`. Usa el `GITHUB_TOKEN` automático de GitHub con permiso de escritura de paquetes; no requiere guardar un token personal en el repositorio.
+
+La imagen es `ghcr.io/maximilianodeppe-coder/dragon_vault:latest`; cada publicación conserva además una etiqueta con el SHA completo del commit. El resultado de la construcción y publicación se consulta en [GitHub Actions](https://github.com/maximilianodeppe-coder/Dragon_Vault/actions/workflows/docker.yml). El paquete puede requerir autenticación para descargarlo; para permitir descargas anónimas, cambiar explícitamente su visibilidad a pública en la configuración de GitHub Packages.
+
+```sh
+docker pull ghcr.io/maximilianodeppe-coder/dragon_vault:latest
+```
+
+Publicar la imagen no inicia un servidor público. El servidor de destino necesita PostgreSQL, las variables privadas de entorno y HTTPS indicados abajo. Las cuentas, contraseñas y progreso locales no se incluyen en la imagen. El workflow publica la imagen final de la aplicación; la etapa `setup` se construye por separado para preparar la base.
+
+### Construir y ejecutar
+
 ```sh
 docker build -t dragon-vault .
 docker build --target setup -t dragon-vault-setup .
