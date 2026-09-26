@@ -174,6 +174,32 @@ El repositorio usa la rama `main` y el remoto `origin`: [maximilianodeppe-coder/
 
 ## Docker
 
+### Docker Compose (app y PostgreSQL)
+
+Desde una copia de este repositorio, copiar `compose.env.example` como `.env.compose`. No reemplazar el `.env` de la instalación local. Completar `POSTGRES_PASSWORD` y `JWT_SECRET` con dos valores diferentes generados con `openssl rand -hex 32` (o `node -e "console.log(require('node:crypto').randomBytes(32).toString('hex'))"`). Usar hexadecimal para la contraseña de PostgreSQL, porque se incorpora en la URL de conexión. Definir `ADMIN_PASSWORD` con al menos 12 caracteres y hasta 72 bytes; envolver el valor entre comillas simples si contiene `$` o `#`.
+
+```sh
+docker compose --env-file .env.compose config --quiet
+docker compose --env-file .env.compose pull app db
+docker compose --env-file .env.compose run --rm --build setup npm run db:admin
+```
+
+El comando de administrador se ejecuta una sola vez en una base nueva y también crea las tablas. Quitar `ADMIN_PASSWORD` de `.env.compose` después, y arrancar:
+
+```sh
+docker compose --env-file .env.compose up -d --build
+docker compose --env-file .env.compose ps -a
+docker compose --env-file .env.compose logs --tail=100 app setup
+```
+
+Abrir `http://127.0.0.1:3000` e ingresar con la cuenta recién creada. Si el puerto está ocupado por la instalación local, cambiar tanto `APP_PORT` como el puerto de `APP_ORIGIN`. `setup` debe finalizar con código 0: es una tarea de preparación, no un servicio permanente. Compose espera a que PostgreSQL esté listo y las tablas preparadas antes de iniciar la app. La imagen de la app se descarga de GHCR; `setup` se construye desde el Dockerfile del repositorio, por lo que se necesita el checkout completo. Para versiones fijas, usar en `IMAGE_TAG` el SHA del mismo commit del checkout.
+
+Si GHCR rechaza la descarga de un paquete privado, ejecutar `docker login ghcr.io -u maximilianodeppe-coder` e ingresar un token con `read:packages` como contraseña, o permitir descargas públicas desde la configuración del paquete.
+
+Para un servidor público, configurar `APP_ORIGIN=https://tu-dominio` sin barra final y un proxy HTTPS en el host hacia `127.0.0.1:3000`. Este Compose publica el puerto solo en loopback y no configura dominio ni certificados. PostgreSQL no publica puertos. Los volúmenes `postgres-data` y `app-data` conservan base y caché; `docker compose --env-file .env.compose down` los conserva, pero **no usar `down -v` si se quieren preservar los datos**. Esta base es independiente de la instalación local: no incluye sus cuentas ni su progreso. Cambiar `POSTGRES_PASSWORD` en el archivo no cambia la contraseña de una base ya inicializada.
+
+Para actualizar, respaldar PostgreSQL, actualizar el checkout, descargar la imagen con `docker compose --env-file .env.compose pull app` y ejecutar nuevamente `docker compose --env-file .env.compose up -d --build`. No repetir `db:admin`. Las tablas se preparan con el comando idempotente `db:migrate` de la etapa `setup`. La ejecución completa debe verificarse en un host con Docker; esta computadora no dispone de Docker.
+
 ### Publicar en GHCR
 
 El workflow `.github/workflows/docker.yml` construye y publica la imagen en cada push a `main`. También puede ejecutarse desde **Actions → Publicar imagen Docker → Run workflow**, seleccionando `main`. Usa el `GITHUB_TOKEN` automático de GitHub con permiso de escritura de paquetes; no requiere guardar un token personal en el repositorio.

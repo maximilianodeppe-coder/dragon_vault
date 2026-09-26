@@ -1,0 +1,52 @@
+name: dragon-vault
+
+services:
+  db:
+    image: postgres:18-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: dragon_vault
+      POSTGRES_USER: dragon_vault
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Configurá POSTGRES_PASSWORD en .env.compose}
+    volumes:
+      - postgres-data:/var/lib/postgresql
+    healthcheck:
+      test: [CMD-SHELL, 'pg_isready -U "$$POSTGRES_USER" -d "$$POSTGRES_DB"']
+      interval: 5s
+      timeout: 5s
+      retries: 12
+      start_period: 10s
+
+  setup:
+    build:
+      context: .
+      target: setup
+    restart: "no"
+    environment:
+      DATABASE_URL: postgresql://dragon_vault:${POSTGRES_PASSWORD:?Configurá POSTGRES_PASSWORD}@db:5432/dragon_vault
+      ADMIN_USERNAME: ${ADMIN_USERNAME:-admin}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD:-}
+    depends_on:
+      db:
+        condition: service_healthy
+
+  app:
+    image: ghcr.io/maximilianodeppe-coder/dragon_vault:${IMAGE_TAG:-latest}
+    restart: unless-stopped
+    environment:
+      DATABASE_URL: postgresql://dragon_vault:${POSTGRES_PASSWORD:?Configurá POSTGRES_PASSWORD}@db:5432/dragon_vault
+      JWT_SECRET: ${JWT_SECRET:?Configurá JWT_SECRET en .env.compose}
+      APP_ORIGIN: ${APP_ORIGIN:-http://127.0.0.1:3000}
+    ports:
+      - "127.0.0.1:${APP_PORT:-3000}:3000"
+    volumes:
+      - app-data:/app/.data
+    depends_on:
+      db:
+        condition: service_healthy
+      setup:
+        condition: service_completed_successfully
+
+volumes:
+  postgres-data:
+  app-data:
