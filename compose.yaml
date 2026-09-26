@@ -18,9 +18,7 @@ services:
       start_period: 10s
 
   setup:
-    build:
-      context: .
-      target: setup
+    image: ghcr.io/maximilianodeppe-coder/dragon_vault:setup-${IMAGE_TAG:-latest}
     restart: "no"
     environment:
       DATABASE_URL: postgresql://dragon_vault:${POSTGRES_PASSWORD:?Configurá POSTGRES_PASSWORD}@db:5432/dragon_vault

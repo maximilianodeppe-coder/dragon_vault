@@ -32,6 +32,11 @@ jobs:
             --label "org.opencontainers.image.revision=${GITHUB_SHA}" \
             -t "$IMAGE:latest" \
             -t "$IMAGE:${GITHUB_SHA}" .
+          docker build --target setup \
+            --label "org.opencontainers.image.source=https://github.com/${GITHUB_REPOSITORY}" \
+            --label "org.opencontainers.image.revision=${GITHUB_SHA}" \
+            -t "$IMAGE:setup-latest" \
+            -t "$IMAGE:setup-${GITHUB_SHA}" .
 
       - name: Ingresar a GHCR
         env:
@@ -41,6 +46,8 @@ jobs:
       - name: Publicar imagen
         run: |
           docker push "$IMAGE:${GITHUB_SHA}"
+          docker push "$IMAGE:setup-${GITHUB_SHA}"
+          docker push "$IMAGE:setup-latest"
           docker push "$IMAGE:latest"
 
       - name: Cerrar sesión de GHCR
