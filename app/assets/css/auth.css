@@ -1,0 +1,19 @@
+.auth-page { min-height: 80svh; display: grid; grid-template-columns: 1fr minmax(300px, 420px); align-items: center; gap: clamp(32px, 7vw, 110px); max-width: 1080px; margin: auto; padding: 48px 0; }
+.auth-intro h1 { max-width: 12ch; margin: 32px 0 20px; }
+.auth-intro p { max-width: 38ch; color: var(--muted); }
+.auth-form { display: grid; gap: 12px; padding: 32px; border: 1px solid var(--line); border-radius: 12px; background: var(--panel); }
+.auth-form h2 { margin: 0 0 16px; }
+.auth-form label { margin-top: 8px; }
+.auth-form .primary { margin-top: 12px; }
+.user-create { display: flex; align-items: end; gap: 16px; flex-wrap: wrap; padding: 24px 0 32px; border-bottom: 1px solid var(--line); }
+.user-create h2, .user-create .micro { flex-basis: 100%; margin: 0; }
+.user-create label, .user-list label { display: grid; gap: 8px; }
+.users-page > .section-heading { margin-top: 32px; }
+.user-list { list-style: none; padding: 0; }
+.user-list > li { display: flex; align-items: center; flex-wrap: wrap; gap: 24px; padding: 24px 0; border-bottom: 1px solid var(--line); }
+.user-list > li > div { min-width: 160px; flex: 1; overflow-wrap: anywhere; }
+.user-list p { margin: 4px 0 0; color: var(--muted); }
+.coin-grant { display: flex; align-items: end; flex-wrap: wrap; gap: 12px; }
+.coin-grant input { width: 150px; }
+.saving-state { position: fixed; bottom: 20px; right: 20px; z-index: 200; background: var(--panel); border: 1px solid var(--line); border-radius: 7px; padding: 12px 20px; }
+@media (max-width: 700px) { .auth-page { grid-template-columns: 1fr; gap: 24px; padding: 24px 0; } .auth-intro h1 { margin-top: 24px; max-width: none; } .auth-form { padding: 24px; } .user-create > label, .user-create > button { width: 100%; } .user-list > li { gap: 16px; } }

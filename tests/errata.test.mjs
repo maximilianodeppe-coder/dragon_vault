@@ -1,0 +1,38 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { readFileSync } from 'node:fs';
+import { byId, allCards, registerCatalog, registerSpanish, familyCopies } from '../app/utils/catalog.js';
+import { createProgress, validate, clone } from '../app/utils/progress.js';
+import { saveExpansion } from '../app/utils/expansions.js';
+import { addCopies } from '../app/utils/inventory.js';
+import { changeDeck, Economy } from '../app/utils/actions.js';
+import { indexSetCards } from '../app/utils/official-sets.js';
+const catalog = JSON.parse(readFileSync('data/catalog/cards.json', 'utf8'));
+const spanish = JSON.parse(readFileSync('data/catalog/es.json', 'utf8'));
+test('variantes estables, textos separados, inventario y máximo compartido', () => {
+  registerCatalog(catalog); registerSpanish(spanish);
+  const old = '26202165', modern = old + ':errata';
+  assert.ok(byId.get(old).historical);
+  assert.equal(byId.get(modern).historical, undefined);
+  assert.equal(byId.get(modern).postErrata, true);
+  assert.match(byId.get(modern).name_es, /post-errata/);
+  assert.notEqual(byId.get(old).historical.original_en, byId.get(modern).desc_en);
+  assert.equal(byId.get(old).image, byId.get(modern).image);
+  assert.equal(allCards.filter(c => c.postErrata).length, 4);
+  const s = createProgress();
+  addCopies(s, old, 3, { source: 'MRD', sourceName: 'Metal Raiders', rarity: 'Rare' });
+  saveExpansion(s, { id: 'custom-errata', name: 'Actualizadas', status: 'published', cost: 1, size: 1,
+    entries: [{ id: modern, copies: 3, remaining: 3, rarity: 'Common' }] });
+  Economy.draw(s, allCards, 'custom-errata', () => 0);
+  assert.equal(s.owned[modern], 1); assert.equal(s.owned[old], 3);
+  s.decks.push({ id: 'deck', name: 'Prueba', cards: {} });
+  changeDeck(s, 'deck', old, 3);
+  assert.throws(() => changeDeck(s, 'deck', modern, 1), /variantes/);
+  changeDeck(s, 'deck', old, -1); changeDeck(s, 'deck', modern, 1);
+  assert.equal(familyCopies(s.decks[0], modern), 3);
+  assert.deepEqual(validate(clone(s)), s);
+  assert.ok([...indexSetCards(allCards).values()].every(m => !m.has(modern)));
+  registerCatalog(catalog); registerSpanish(spanish);
+  assert.equal(allCards.filter(c => c.postErrata).length, 4);
+  assert.deepEqual(validate(clone(s)), s);
+});

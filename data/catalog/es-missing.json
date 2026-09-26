@@ -1,0 +1,1857 @@
+[
+  {
+    "id": 149694341,
+    "name": "???",
+    "type": "Spell Card"
+  },
+  {
+    "id": 72978038,
+    "name": "\"Raise Moon\" the City that Never Sleeps",
+    "type": "Spell Card"
+  },
+  {
+    "id": 9762295,
+    "name": "A Journey Back to the Light - \"Zenet\"",
+    "type": "Spell Card"
+  },
+  {
+    "id": 100460003,
+    "name": "Abyss Vagrada the Abyssal Cubic Lord",
+    "type": "Fusion Monster"
+  },
+  {
+    "id": 24925387,
+    "name": "Adamancipator Conductor",
+    "type": "Tuner Monster"
+  },
+  {
+    "id": 51420096,
+    "name": "Adamancipator Crystal - Tiamite",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 41458361,
+    "name": "Adamancipator Luminous",
+    "type": "Link Monster"
+  },
+  {
+    "id": 30068809,
+    "name": "Adamancipator Mates",
+    "type": "Spell Card"
+  },
+  {
+    "id": 89913287,
+    "name": "Adamancipator Risen - Tiamite",
+    "type": "Synchro Monster"
+  },
+  {
+    "id": 1280391,
+    "name": "Advent of Atlantis",
+    "type": "Spell Card"
+  },
+  {
+    "id": 101403038,
+    "name": "Aitvaras, Knight of the Winter Raven",
+    "type": "Synchro Monster"
+  },
+  {
+    "id": 38331244,
+    "name": "Akasuna the Battle Ashtra",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 100460002,
+    "name": "Alditia Hell Blaze the Burning Cubic Lord",
+    "type": "Fusion Monster"
+  },
+  {
+    "id": 4881365,
+    "name": "Alligator's Dragon Knight",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 45151304,
+    "name": "Am Duazenet",
+    "type": "Trap Card"
+  },
+  {
+    "id": 662855,
+    "name": "Amatsu-Okami of the Divine Peaks",
+    "type": "Link Monster"
+  },
+  {
+    "id": 40173854,
+    "name": "Amphibious Bugroth",
+    "type": "Fusion Monster"
+  },
+  {
+    "id": 300302022,
+    "name": "Ancient Fusion",
+    "type": "Skill Card"
+  },
+  {
+    "id": 300302056,
+    "name": "Ancient Ruler Rises",
+    "type": "Skill Card"
+  },
+  {
+    "id": 30752324,
+    "name": "Ancient Secrets",
+    "type": "Spell Card"
+  },
+  {
+    "id": 12845564,
+    "name": "Angelechy Endgame Problem",
+    "type": "Spell Card"
+  },
+  {
+    "id": 48340269,
+    "name": "Angelechy Verdict",
+    "type": "Trap Card"
+  },
+  {
+    "id": 63028558,
+    "name": "Anotherverse Solaria",
+    "type": "Normal Monster"
+  },
+  {
+    "id": 10949074,
+    "name": "Anotherverse Stratios",
+    "type": "Normal Monster"
+  },
+  {
+    "id": 101403011,
+    "name": "Anu, Knight of the Winter Raven",
+    "type": "Tuner Monster"
+  },
+  {
+    "id": 86164529,
+    "name": "Aqua Dragon",
+    "type": "Fusion Monster"
+  },
+  {
+    "id": 72321198,
+    "name": "Arcana Force XII - The Hangman",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 100459022,
+    "name": "Archfiend of Gilfer - Flame Attack",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 300302057,
+    "name": "Archfiend's Conscription",
+    "type": "Skill Card"
+  },
+  {
+    "id": 79621896,
+    "name": "Archfiend's Origin",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 300302058,
+    "name": "Archfiend's Promotion",
+    "type": "Skill Card"
+  },
+  {
+    "id": 300302023,
+    "name": "Armed and Ready!",
+    "type": "Skill Card"
+  },
+  {
+    "id": 56779694,
+    "name": "Armor Wizard Pazoo",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 37279096,
+    "name": "Ars Magna - \"Citrinitas\"",
+    "type": "Spell Card"
+  },
+  {
+    "id": 90728287,
+    "name": "Ars Magna - \"Philosophirum\"",
+    "type": "Trap Card"
+  },
+  {
+    "id": 36270527,
+    "name": "Ars Magna of Infinity and Finity",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 62368221,
+    "name": "Ars Magna of Purification and Corruption",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 99753860,
+    "name": "Ars Magna of Unification and Separation",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 91444835,
+    "name": "Ashtra Cursed Roar",
+    "type": "Trap Card"
+  },
+  {
+    "id": 37839434,
+    "name": "Ashtra Divine Domain",
+    "type": "Trap Card"
+  },
+  {
+    "id": 64455720,
+    "name": "Ashtra Insect Poison",
+    "type": "Trap Card"
+  },
+  {
+    "id": 17020474,
+    "name": "Ashtraja Susanoo",
+    "type": "Synchro Monster"
+  },
+  {
+    "id": 2906939,
+    "name": "Ashtrashen - Gateway to the Worlds Beyond",
+    "type": "Spell Card"
+  },
+  {
+    "id": 43419178,
+    "name": "Ashtraya Mikumari-no-Mikoto",
+    "type": "Synchro Monster"
+  },
+  {
+    "id": 67676619,
+    "name": "Assault Lion",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 65785782,
+    "name": "Atlantis Call",
+    "type": "Spell Card"
+  },
+  {
+    "id": 38391684,
+    "name": "Atlantis, City of the Sea Dragon",
+    "type": "Spell Card"
+  },
+  {
+    "id": 100459019,
+    "name": "Attribute Rejection",
+    "type": "Spell Card"
+  },
+  {
+    "id": 101402101,
+    "name": "Audhumla, Progenitor of the Frozen Expanse",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 41570943,
+    "name": "Azure Ocean Dragon Lord - Neo-Daedalus Rage",
+    "type": "Link Monster"
+  },
+  {
+    "id": 75518330,
+    "name": "Barian's Hope",
+    "type": "Spell Card"
+  },
+  {
+    "id": 38001022,
+    "name": "Barian's Seal",
+    "type": "Trap Card"
+  },
+  {
+    "id": 100459005,
+    "name": "Barrel Dragon the Machine Dragon",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 300302006,
+    "name": "Beasts of Phantom",
+    "type": "Skill Card"
+  },
+  {
+    "id": 300302043,
+    "name": "Behold, Gate Guardian!",
+    "type": "Skill Card"
+  },
+  {
+    "id": 300302044,
+    "name": "Believe in your Bro",
+    "type": "Skill Card"
+  },
+  {
+    "id": 300302045,
+    "name": "Beware the Brothers Paradox!",
+    "type": "Skill Card"
+  },
+  {
+    "id": 99505609,
+    "name": "Bingo Card",
+    "type": "Trap Card"
+  },
+  {
+    "id": 46985799,
+    "name": "Black Rose Dragon/Assault Mode",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 97818130,
+    "name": "Black Skull Dragon the Archfiend Dragon of Unity",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 300302024,
+    "name": "Blaze Accelerator Deployment (Skill Card)",
+    "type": "Skill Card"
+  },
+  {
+    "id": 30945251,
+    "name": "Blitzclique - Overvoltage",
+    "type": "Spell Card"
+  },
+  {
+    "id": 100459004,
+    "name": "Blue-Eyes Ultimate Dragon, the God-Surpassing Servant",
+    "type": "Fusion Monster"
+  },
+  {
+    "id": 71808988,
+    "name": "Blue-Eyes Ultimate Toon Dragon",
+    "type": "Toon Monster"
+  },
+  {
+    "id": 30397786,
+    "name": "Blue-Eyes White Dragon, the White Phantom Beast",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 27096833,
+    "name": "Borreload Liberator Dragon",
+    "type": "Link Monster"
+  },
+  {
+    "id": 80222045,
+    "name": "Breeze the Electrovore of Rkunas",
+    "type": "Normal Monster"
+  },
+  {
+    "id": 7428507,
+    "name": "Burial Summit Xenovader△ Helheim",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 8315896,
+    "name": "Candelato, the Beast of Light",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 24056179,
+    "name": "Capsule Monster Chess",
+    "type": "Spell Card"
+  },
+  {
+    "id": 55363218,
+    "name": "Cartoon Shade",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 41424250,
+    "name": "Chaos End Ruler - Master of the Beginning and End",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 300302046,
+    "name": "Chemistry in Motion",
+    "type": "Skill Card"
+  },
+  {
+    "id": 300302047,
+    "name": "Chillin' Outback",
+    "type": "Skill Card"
+  },
+  {
+    "id": 73090586,
+    "name": "Cielo, the Night Sky of Raise Moon - No More Bets!",
+    "type": "XYZ Monster"
+  },
+  {
+    "id": 75934716,
+    "name": "Cielo, the Veil of Raise Moon",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 54603525,
+    "name": "Clear Wing Synchro Dragon, Four Heavenly Dragons",
+    "type": "Synchro Monster"
+  },
+  {
+    "id": 300302059,
+    "name": "Cloudy Skies of Grey",
+    "type": "Skill Card"
+  },
+  {
+    "id": 19491080,
+    "name": "Clown Crew Cappello",
+    "type": "Pendulum Effect Monster"
+  },
+  {
+    "id": 300302060,
+    "name": "Cold-Blooded Tactician",
+    "type": "Skill Card"
+  },
+  {
+    "id": 72921536,
+    "name": "Comic Cat",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 300302025,
+    "name": "Consumed By Darkness",
+    "type": "Skill Card"
+  },
+  {
+    "id": 82692552,
+    "name": "Coralianektes the Shimmering Shining Dragon",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 63111591,
+    "name": "Corpse-Seller Crow",
+    "type": "Trap Card"
+  },
+  {
+    "id": 29053656,
+    "name": "Crimson Dragon Quetzalcoatl",
+    "type": "Synchro Monster"
+  },
+  {
+    "id": 77699839,
+    "name": "Crocodile",
+    "type": "Normal Monster"
+  },
+  {
+    "id": 300302026,
+    "name": "Crystal Transcendence",
+    "type": "Skill Card"
+  },
+  {
+    "id": 100460006,
+    "name": "Cubic Bodhi",
+    "type": "Spell Card"
+  },
+  {
+    "id": 26116996,
+    "name": "Cursed Paper Retribution",
+    "type": "Trap Card"
+  },
+  {
+    "id": 79791695,
+    "name": "CXyz Hope Chaos Barian Dragon",
+    "type": "XYZ Monster"
+  },
+  {
+    "id": 300302027,
+    "name": "Cyber Blade Fusion",
+    "type": "Skill Card"
+  },
+  {
+    "id": 66664203,
+    "name": "Cyber Dragon, the Luminous Mech Dragon",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 30275298,
+    "name": "Cyber End Dragon, the Final Strike Dragon",
+    "type": "Fusion Monster"
+  },
+  {
+    "id": 300302028,
+    "name": "Cyberdark Style (Skill Card)",
+    "type": "Skill Card"
+  },
+  {
+    "id": 47471667,
+    "name": "D - Burst",
+    "type": "Spell Card"
+  },
+  {
+    "id": 64233143,
+    "name": "Daedalus Maelstrom",
+    "type": "Trap Card"
+  },
+  {
+    "id": 39030883,
+    "name": "Dark Armed Dragon Punisher",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 4663194,
+    "name": "Dark City at Midnight",
+    "type": "Spell Card"
+  },
+  {
+    "id": 300302061,
+    "name": "Dark Creation",
+    "type": "Skill Card"
+  },
+  {
+    "id": 52768390,
+    "name": "Dark Creator",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 100459007,
+    "name": "Dark Necrofear, the Ruler of Demise",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 100459009,
+    "name": "Dark Paladin - Wave-Motion",
+    "type": "Fusion Monster"
+  },
+  {
+    "id": 90091224,
+    "name": "Dark Rebellion Xyz Dragon, Four Heavenly Dragons",
+    "type": "XYZ Monster"
+  },
+  {
+    "id": 40235813,
+    "name": "Dark Time Wizard",
+    "type": "Spell Card"
+  },
+  {
+    "id": 15141103,
+    "name": "Dark Tuner Catastrogue",
+    "type": "Tuner Monster"
+  },
+  {
+    "id": 51546708,
+    "name": "Dark Tuner Nightmare Hand",
+    "type": "Tuner Monster"
+  },
+  {
+    "id": 46826483,
+    "name": "Dark Tyranno",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 300302062,
+    "name": "Dark Unity",
+    "type": "Skill Card"
+  },
+  {
+    "id": 34314989,
+    "name": "Dark-Eyes Illusionist Faceless Mage",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 20240828,
+    "name": "Decoy",
+    "type": "Normal Monster"
+  },
+  {
+    "id": 101403059,
+    "name": "Deep Forest of the Winter Raven",
+    "type": "Spell Card"
+  },
+  {
+    "id": 67886895,
+    "name": "Deep-Eyes White Dragon, the Blue Abyss",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 300302063,
+    "name": "Delicious Morsel!",
+    "type": "Skill Card"
+  },
+  {
+    "id": 26364381,
+    "name": "Demiurge Ema",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 48128081,
+    "name": "Destined Duel",
+    "type": "Spell Card"
+  },
+  {
+    "id": 25158975,
+    "name": "Destiny HERO - Destro-Dogma",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 62542673,
+    "name": "Destiny HERO - Doom Overlord",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 54641720,
+    "name": "Destiny HERO - Dreadnought Master",
+    "type": "Fusion Monster"
+  },
+  {
+    "id": 98931282,
+    "name": "Destiny HERO - Dreadnought Servant",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 3841104,
+    "name": "Destratification Dino Stratiae",
+    "type": "Link Monster"
+  },
+  {
+    "id": 100461000,
+    "name": "Diabellstar, the Seeker of Sinful Spoils",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 101403034,
+    "name": "Diabellze, Heiress of the Winter Raven's Forest",
+    "type": "Fusion Monster"
+  },
+  {
+    "id": 100460004,
+    "name": "Divine Anima Infinity the Creation Cubic Overlord",
+    "type": "Fusion Monster"
+  },
+  {
+    "id": 44088353,
+    "name": "Doll Hammer",
+    "type": "Spell Card"
+  },
+  {
+    "id": 65302903,
+    "name": "Dominusteer Rosepamela",
+    "type": "Tuner Monster"
+  },
+  {
+    "id": 300302064,
+    "name": "Dragon Force",
+    "type": "Skill Card"
+  },
+  {
+    "id": 101403073,
+    "name": "Egyptian God Slime, Protector of the Sun God",
+    "type": "Trap Card"
+  },
+  {
+    "id": 65424481,
+    "name": "Ekhajar, Descendant Dragon of the Ice Barrier",
+    "type": "Synchro Monster"
+  },
+  {
+    "id": 8593259,
+    "name": "Elemental HERO Clay Guardian",
+    "type": "Fusion Monster"
+  },
+  {
+    "id": 50208444,
+    "name": "Elemental Saga Doriado",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 300302048,
+    "name": "Elements of Thunder, Water, and Wind",
+    "type": "Skill Card"
+  },
+  {
+    "id": 101303071,
+    "name": "Elvennotes ~Oracle Alicetea~",
+    "type": "Trap Card"
+  },
+  {
+    "id": 101304014,
+    "name": "Elvennotes Regina",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 3635138,
+    "name": "Emissaries from Darkness",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 60811211,
+    "name": "Emptiness Devouring Xenovader△ Jahannam",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 300302007,
+    "name": "Endless Traps",
+    "type": "Skill Card"
+  },
+  {
+    "id": 300302029,
+    "name": "Energizing Elements",
+    "type": "Skill Card"
+  },
+  {
+    "id": 8915275,
+    "name": "Evil Box",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 100459013,
+    "name": "Evil Dragon Cards - Earth Dragon",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 100459014,
+    "name": "Evil Dragon Cards - Metal Dragon",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 73320394,
+    "name": "Evil Lord - Zorc",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 82970905,
+    "name": "Father Grizzly",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 100459016,
+    "name": "Field Power Bonus",
+    "type": "Spell Card"
+  },
+  {
+    "id": 63481713,
+    "name": "Fiendish Vortex of Atlantis",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 100459025,
+    "name": "Final Journey of the Soul",
+    "type": "Trap Card"
+  },
+  {
+    "id": 101206080,
+    "name": "Fireworks Celebration",
+    "type": "Trap Card"
+  },
+  {
+    "id": 76660178,
+    "name": "Fisherman of Legend",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 100459021,
+    "name": "Flashforce Sword",
+    "type": "Spell Card"
+  },
+  {
+    "id": 300302065,
+    "name": "Fog Warning",
+    "type": "Skill Card"
+  },
+  {
+    "id": 65118318,
+    "name": "Foolish Graverobber",
+    "type": "Trap Card"
+  },
+  {
+    "id": 300302030,
+    "name": "Forbidden Cyber Style Technique",
+    "type": "Skill Card"
+  },
+  {
+    "id": 300302066,
+    "name": "Forged Steel",
+    "type": "Skill Card"
+  },
+  {
+    "id": 51083544,
+    "name": "Frost Tiger",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 44857722,
+    "name": "Full Moon Mirror",
+    "type": "Spell Card"
+  },
+  {
+    "id": 53830602,
+    "name": "Fungi of the Musk",
+    "type": "Normal Monster"
+  },
+  {
+    "id": 45536531,
+    "name": "Funny Dark Rabbit",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 300302005,
+    "name": "Fury of Thunder",
+    "type": "Skill Card"
+  },
+  {
+    "id": 92058902,
+    "name": "Future Fusion Nova",
+    "type": "Spell Card"
+  },
+  {
+    "id": 91714772,
+    "name": "Galaxy Defense Robot Orbital 7",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 54725177,
+    "name": "Galaxy-Eyes Photon Change Dragon",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 28968609,
+    "name": "Garbage Golem",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 88931417,
+    "name": "Gatling Ogre",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 100459023,
+    "name": "Gearfried the Steel Knight",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 90098000,
+    "name": "General of Atlantis",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 111000561,
+    "name": "Get Your Game On!",
+    "type": "Spell Card"
+  },
+  {
+    "id": 101403003,
+    "name": "Gil Garth, Exterminator of the Sun God",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 100459008,
+    "name": "Gilford the Lightning, the Warrior of Thunderbolts",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 76548531,
+    "name": "Gorgonic Umbral Horror",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 76630812,
+    "name": "Graceful & Skull Dice",
+    "type": "Spell Card"
+  },
+  {
+    "id": 300302008,
+    "name": "Guardians of the Tomb",
+    "type": "Skill Card"
+  },
+  {
+    "id": 18905769,
+    "name": "Guivre",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 87395095,
+    "name": "Half Slice of Nickeline",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 77856460,
+    "name": "Helping Robo for Underwater Combat",
+    "type": "Link Monster"
+  },
+  {
+    "id": 101403001,
+    "name": "Helpoemer, Chanter of the Sun God",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 300302031,
+    "name": "Here Goes Something!",
+    "type": "Skill Card"
+  },
+  {
+    "id": 300302049,
+    "name": "HERO World",
+    "type": "Skill Card"
+  },
+  {
+    "id": 300302050,
+    "name": "HEROES UNITE - FUSION!!",
+    "type": "Skill Card"
+  },
+  {
+    "id": 300302009,
+    "name": "Hieratic Chant",
+    "type": "Skill Card"
+  },
+  {
+    "id": 100461003,
+    "name": "Hope for the Future",
+    "type": "Trap Card"
+  },
+  {
+    "id": 29081251,
+    "name": "Hublot the Dark Directory of Death",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 87818869,
+    "name": "Hyper Rank-Up-Magic Ultimate Force",
+    "type": "Spell Card"
+  },
+  {
+    "id": 300302010,
+    "name": "I'm Just Gonna Attack!",
+    "type": "Skill Card"
+  },
+  {
+    "id": 300302032,
+    "name": "I've Got Dino DNA!",
+    "type": "Skill Card"
+  },
+  {
+    "id": 19438484,
+    "name": "Ilios the Black Sun Dragon",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 101403078,
+    "name": "Illusion of the Winter Raven Witch",
+    "type": "Trap Card"
+  },
+  {
+    "id": 14425515,
+    "name": "Infernity Doom Slinger",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 71108540,
+    "name": "Invincible Demise Lord",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 76334960,
+    "name": "Invocation - \"Chalice\"",
+    "type": "Spell Card"
+  },
+  {
+    "id": 80635735,
+    "name": "Invoked Dee Anima",
+    "type": "Fusion Monster"
+  },
+  {
+    "id": 662857,
+    "name": "Iron Knight of Revolution",
+    "type": "Link Monster"
+  },
+  {
+    "id": 300302011,
+    "name": "It's Jinzo!",
+    "type": "Skill Card"
+  },
+  {
+    "id": 300302012,
+    "name": "It's No Monster, It's a God!",
+    "type": "Skill Card"
+  },
+  {
+    "id": 40275470,
+    "name": "Jinzo - Energy Shocker",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 94566432,
+    "name": "Kaiser Dragon",
+    "type": "Fusion Monster"
+  },
+  {
+    "id": 68928540,
+    "name": "Kamakiriman",
+    "type": "Normal Monster"
+  },
+  {
+    "id": 81179446,
+    "name": "Kattapillar",
+    "type": "Normal Monster"
+  },
+  {
+    "id": 100459018,
+    "name": "King of Yamimado",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 100459020,
+    "name": "Knight of Twin Swords",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 52123534,
+    "name": "Kumenyo, the Nine-Hued Deer",
+    "type": "XYZ Monster"
+  },
+  {
+    "id": 65325949,
+    "name": "Kuzuha the Bewitching Deity Ashtra",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 300302033,
+    "name": "Land of the Ojamas (Skill Card)",
+    "type": "Skill Card"
+  },
+  {
+    "id": 101403031,
+    "name": "Lava Golem, Steelcage of the Sun God",
+    "type": "Fusion Monster"
+  },
+  {
+    "id": 64603351,
+    "name": "Levia-Dragon of Atlantis - Daedalus",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 78579058,
+    "name": "Levia-Dragoon - Daedalus",
+    "type": "Link Monster"
+  },
+  {
+    "id": 89753095,
+    "name": "Lightning Crash",
+    "type": "Spell Card"
+  },
+  {
+    "id": 92447211,
+    "name": "Long-Tailed Black Horse",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 300302034,
+    "name": "Looking into the Future",
+    "type": "Skill Card"
+  },
+  {
+    "id": 300302035,
+    "name": "Machine Angel Ascension",
+    "type": "Skill Card"
+  },
+  {
+    "id": 33822112,
+    "name": "Mad Tempest Xenovader△ Ploutonion",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 3287359,
+    "name": "Magical Musket Mastermind Caspar",
+    "type": "Link Monster"
+  },
+  {
+    "id": 300302013,
+    "name": "Magician's Act",
+    "type": "Skill Card"
+  },
+  {
+    "id": 300302014,
+    "name": "Magnetic Attraction",
+    "type": "Skill Card"
+  },
+  {
+    "id": 15725501,
+    "name": "Makourai, the Lightning Strike",
+    "type": "Spell Card"
+  },
+  {
+    "id": 101403002,
+    "name": "Makyura, Destructor of the Sun God",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 101403010,
+    "name": "Mart, Knight of the Winter Raven",
+    "type": "Tuner Monster"
+  },
+  {
+    "id": 4063756,
+    "name": "Medicurius the Power Patron of Illusions",
+    "type": "Link Monster"
+  },
+  {
+    "id": 300302036,
+    "name": "Middle Age Mechs (Skill Card)",
+    "type": "Skill Card"
+  },
+  {
+    "id": 38114652,
+    "name": "Mikumari the Sealing Deity Ashtra",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 66247039,
+    "name": "Mind Mirror Force",
+    "type": "Trap Card"
+  },
+  {
+    "id": 34298391,
+    "name": "Mind Scan",
+    "type": "Trap Card"
+  },
+  {
+    "id": 55585856,
+    "name": "Misstic Call",
+    "type": "Tuner Monster"
+  },
+  {
+    "id": 37092104,
+    "name": "Monstrous Arms of Atlantis",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 58074572,
+    "name": "Mooyan Curry",
+    "type": "Spell Card"
+  },
+  {
+    "id": 81758313,
+    "name": "Myriaday Dragon",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 28331069,
+    "name": "Neo Galaxy-Eyes Photon Dragon - Photon Howling",
+    "type": "XYZ Monster"
+  },
+  {
+    "id": 300302015,
+    "name": "No More Mrs. Nice Mai!",
+    "type": "Skill Card"
+  },
+  {
+    "id": 300302068,
+    "name": "No One Suspects the Dark Scorpion Gang!",
+    "type": "Skill Card"
+  },
+  {
+    "id": 662854,
+    "name": "Noritoshi in Darkest Rainment",
+    "type": "Link Monster"
+  },
+  {
+    "id": 2419596,
+    "name": "Number 101: Silent Honor ARK - Soul Asylum",
+    "type": "XYZ Monster"
+  },
+  {
+    "id": 16908882,
+    "name": "Number 104: Masquerade Vain",
+    "type": "XYZ Monster"
+  },
+  {
+    "id": 42396591,
+    "name": "Number C104: Umbral Horror Masquerade Victory",
+    "type": "XYZ Monster"
+  },
+  {
+    "id": 300302069,
+    "name": "Order of the Queen",
+    "type": "Skill Card"
+  },
+  {
+    "id": 100459011,
+    "name": "Penalty Game \"GREED, the Illusion of Avarice\"",
+    "type": "Trap Card"
+  },
+  {
+    "id": 46273941,
+    "name": "Pere-Zenet Em Heru",
+    "type": "Spell Card"
+  },
+  {
+    "id": 100459002,
+    "name": "Perfect Eclosion - Perfectly Ultimate Great Moth",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 13203964,
+    "name": "Perfectron Hydradrive Dragon",
+    "type": "Link Monster"
+  },
+  {
+    "id": 45700805,
+    "name": "Plasma Warrior Eitom",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 300302051,
+    "name": "Power Bond (Skill Card)",
+    "type": "Skill Card"
+  },
+  {
+    "id": 52558178,
+    "name": "Power Connection",
+    "type": "Spell Card"
+  },
+  {
+    "id": 300302016,
+    "name": "Power of Friendship",
+    "type": "Skill Card"
+  },
+  {
+    "id": 300302021,
+    "name": "Power Up!",
+    "type": "Skill Card"
+  },
+  {
+    "id": 300302037,
+    "name": "Powerful Group of Guys",
+    "type": "Skill Card"
+  },
+  {
+    "id": 33691040,
+    "name": "Pragtical",
+    "type": "Fusion Monster"
+  },
+  {
+    "id": 82370493,
+    "name": "Predaplant Daredevil",
+    "type": "Fusion Monster"
+  },
+  {
+    "id": 100460001,
+    "name": "Pritima the Infinity Cubic Vessel",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 300302070,
+    "name": "Professor of Alchemy",
+    "type": "Skill Card"
+  },
+  {
+    "id": 101403009,
+    "name": "Purifire of the Winter Raven's Forest",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 10086952,
+    "name": "Quick Summon",
+    "type": "Spell Card"
+  },
+  {
+    "id": 300302038,
+    "name": "Rainbow Crystal Collection",
+    "type": "Skill Card"
+  },
+  {
+    "id": 74212164,
+    "name": "Raise Moon Blade Shayna",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 11333460,
+    "name": "Raise Moon Elegance Carol",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 9484285,
+    "name": "Raise Moon Hope Squeeze - Jackpot",
+    "type": "XYZ Monster"
+  },
+  {
+    "id": 10611873,
+    "name": "Raise Moon Lamp Croucier",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 47605577,
+    "name": "Raise Moon Starter Squeeze",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 47828069,
+    "name": "Raise Moon Wings Rapi",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 92936364,
+    "name": "Red Dragon Archfiend's Chains",
+    "type": "Trap Card"
+  },
+  {
+    "id": 65541655,
+    "name": "Red Nova Dragon - Burning Soul",
+    "type": "Synchro Monster"
+  },
+  {
+    "id": 17242022,
+    "name": "Red-Eyes Black Dragon Exceed",
+    "type": "Fusion Monster"
+  },
+  {
+    "id": 67803035,
+    "name": "Reincarnation of the Unchained",
+    "type": "Spell Card"
+  },
+  {
+    "id": 101403024,
+    "name": "Reindsurm Amurusa",
+    "type": "Ritual Effect Monster"
+  },
+  {
+    "id": 101403057,
+    "name": "Reindsurm Butterfly",
+    "type": "Spell Card"
+  },
+  {
+    "id": 101403026,
+    "name": "Reindsurm Carcasas",
+    "type": "Ritual Effect Monster"
+  },
+  {
+    "id": 101403056,
+    "name": "Reindsurm Carnation",
+    "type": "Spell Card"
+  },
+  {
+    "id": 101403055,
+    "name": "Reindsurm Conquest",
+    "type": "Spell Card"
+  },
+  {
+    "id": 101403076,
+    "name": "Reindsurm Encounter",
+    "type": "Trap Card"
+  },
+  {
+    "id": 101403027,
+    "name": "Reindsurm Gigalovendra",
+    "type": "Ritual Effect Monster"
+  },
+  {
+    "id": 101403028,
+    "name": "Reindsurm Giriakarma",
+    "type": "Ritual Effect Monster"
+  },
+  {
+    "id": 101403025,
+    "name": "Reindsurm Luvian",
+    "type": "Ritual Effect Monster"
+  },
+  {
+    "id": 101403058,
+    "name": "Reindsurm Practice",
+    "type": "Spell Card"
+  },
+  {
+    "id": 100459006,
+    "name": "Relinquished the Wicked Eye of Illusion",
+    "type": "Ritual Effect Monster"
+  },
+  {
+    "id": 2606417,
+    "name": "Reversal Box",
+    "type": "Trap Card"
+  },
+  {
+    "id": 300302017,
+    "name": "Rise of the Fallen",
+    "type": "Skill Card"
+  },
+  {
+    "id": 53481938,
+    "name": "Rokket Barrage",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 300302039,
+    "name": "Room for Growth",
+    "type": "Skill Card"
+  },
+  {
+    "id": 300302071,
+    "name": "Ruthless Means",
+    "type": "Skill Card"
+  },
+  {
+    "id": 36608728,
+    "name": "Saiba the Fighting Swordsmith",
+    "type": "Synchro Monster"
+  },
+  {
+    "id": 101403014,
+    "name": "Salamangreat Bastella",
+    "type": "Tuner Monster"
+  },
+  {
+    "id": 101403063,
+    "name": "Salamangreat Gearblade",
+    "type": "Spell Card"
+  },
+  {
+    "id": 101403013,
+    "name": "Salamangreat Markhor",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 662853,
+    "name": "Sanctity of Dragon",
+    "type": "Link Monster"
+  },
+  {
+    "id": 300302072,
+    "name": "Setting Sun",
+    "type": "Skill Card"
+  },
+  {
+    "id": 39513225,
+    "name": "Seventh Barian's",
+    "type": "Spell Card"
+  },
+  {
+    "id": 3441553,
+    "name": "Shimmering Shatterer of the Sacred Beasts",
+    "type": "Spell Card"
+  },
+  {
+    "id": 3064783,
+    "name": "Shining Umbral Horror",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 101403012,
+    "name": "Sinful Spoils of the Winter Raven's Forest",
+    "type": "Tuner Monster"
+  },
+  {
+    "id": 61033809,
+    "name": "Sky Thunder Xenovader△ Yomi",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 51307986,
+    "name": "Skyborne Blue Cularsaw",
+    "type": "Fusion Monster"
+  },
+  {
+    "id": 3129527,
+    "name": "Sleepy Scapegoats",
+    "type": "Spell Card"
+  },
+  {
+    "id": 300302052,
+    "name": "Small Roid Big City",
+    "type": "Skill Card"
+  },
+  {
+    "id": 31242786,
+    "name": "Souleater",
+    "type": "Normal Monster"
+  },
+  {
+    "id": 2729965,
+    "name": "Spatial Trunade",
+    "type": "Spell Card"
+  },
+  {
+    "id": 100459024,
+    "name": "Spell Card \"Enemy Controller\"",
+    "type": "Spell Card"
+  },
+  {
+    "id": 300302018,
+    "name": "Spell of Mask",
+    "type": "Skill Card"
+  },
+  {
+    "id": 300302053,
+    "name": "Spell of Mask (Skill Card)",
+    "type": "Skill Card"
+  },
+  {
+    "id": 39123673,
+    "name": "Spell Power Attainment",
+    "type": "Spell Card"
+  },
+  {
+    "id": 77456448,
+    "name": "Spell Shattering Sword",
+    "type": "Spell Card"
+  },
+  {
+    "id": 101403077,
+    "name": "Splendor of the Winter Raven Witch",
+    "type": "Trap Card"
+  },
+  {
+    "id": 42232157,
+    "name": "Stage of Destiny",
+    "type": "Trap Card"
+  },
+  {
+    "id": 27118421,
+    "name": "Starving Venom Fusion Dragon, Four Heavenly Dragons",
+    "type": "Fusion Monster"
+  },
+  {
+    "id": 98588427,
+    "name": "Steam Knight - BULLauncher",
+    "type": "Normal Monster"
+  },
+  {
+    "id": 101403072,
+    "name": "Sun God Domination",
+    "type": "Trap Card"
+  },
+  {
+    "id": 100459015,
+    "name": "Super Critical",
+    "type": "Spell Card"
+  },
+  {
+    "id": 15185344,
+    "name": "Swickelavee the Brilliantly Crowned Heavy Cavalry",
+    "type": "XYZ Monster"
+  },
+  {
+    "id": 77482666,
+    "name": "Swiftwind Panther Warrior",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 75646173,
+    "name": "Synchar",
+    "type": "Normal Monster"
+  },
+  {
+    "id": 73490148,
+    "name": "Tauzenet Wadjet",
+    "type": "Ritual Effect Monster"
+  },
+  {
+    "id": 9362643,
+    "name": "The Glitter of Raise Moon",
+    "type": "Trap Card"
+  },
+  {
+    "id": 24203749,
+    "name": "The Great Gallant Bandit",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 93871599,
+    "name": "The Guiding Flute of Summoning Dragons",
+    "type": "Spell Card"
+  },
+  {
+    "id": 101403051,
+    "name": "The Immortal Sun God",
+    "type": "Spell Card"
+  },
+  {
+    "id": 42026772,
+    "name": "The Magical King of Dimension Zeta",
+    "type": "Normal Tuner Monster"
+  },
+  {
+    "id": 300302019,
+    "name": "The Psychic Duelist",
+    "type": "Skill Card"
+  },
+  {
+    "id": 300302041,
+    "name": "The Right Hero for the Job",
+    "type": "Skill Card"
+  },
+  {
+    "id": 300302054,
+    "name": "The Roids are Alright",
+    "type": "Skill Card"
+  },
+  {
+    "id": 46983930,
+    "name": "The Stars of Raise Moon",
+    "type": "Spell Card"
+  },
+  {
+    "id": 101403052,
+    "name": "The Sun God Leading Down into Darkness",
+    "type": "Spell Card"
+  },
+  {
+    "id": 101403030,
+    "name": "The Winged Dragon of Ra, Sun God of Darkness",
+    "type": "Fusion Monster"
+  },
+  {
+    "id": 90875418,
+    "name": "Theorealize Medius",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 68798161,
+    "name": "Thoroughbred Elf",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 2932235,
+    "name": "Thousand Umbral Horror",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 7293697,
+    "name": "Toon World the Perfect World",
+    "type": "Spell Card"
+  },
+  {
+    "id": 212652,
+    "name": "Trap of the Poisonous Scorpion",
+    "type": "Trap Card"
+  },
+  {
+    "id": 89875646,
+    "name": "Triple Borrel Launch",
+    "type": "Spell Card"
+  },
+  {
+    "id": 96205925,
+    "name": "Trirealm Rift Gospel",
+    "type": "Spell Card"
+  },
+  {
+    "id": 60589682,
+    "name": "Twin Long Rods #1",
+    "type": "Normal Monster"
+  },
+  {
+    "id": 38817295,
+    "name": "Ultimate Sky",
+    "type": "Spell Card"
+  },
+  {
+    "id": 94014327,
+    "name": "Unchained Enma Lord Yama",
+    "type": "Link Monster"
+  },
+  {
+    "id": 68625623,
+    "name": "Unchained Malevolent Magistrate Kamura",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 95136979,
+    "name": "Unchained Ogre Shara",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 31531914,
+    "name": "Unchained Ogre Shma",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 21419436,
+    "name": "Unchained Soul Rage Abominator",
+    "type": "Link Monster"
+  },
+  {
+    "id": 93898740,
+    "name": "Unchained Syncretism",
+    "type": "Trap Card"
+  },
+  {
+    "id": 300302055,
+    "name": "Under Pressure",
+    "type": "Skill Card"
+  },
+  {
+    "id": 300302020,
+    "name": "Union Combination",
+    "type": "Skill Card"
+  },
+  {
+    "id": 300302073,
+    "name": "Unlocking the Power",
+    "type": "Skill Card"
+  },
+  {
+    "id": 39053882,
+    "name": "V Umbral Horror",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 300302074,
+    "name": "Vampiric Aristocracy",
+    "type": "Skill Card"
+  },
+  {
+    "id": 22623509,
+    "name": "Verre, the Maid of Endymion",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 300302075,
+    "name": "Victory of the Shadow Riders",
+    "type": "Skill Card"
+  },
+  {
+    "id": 101403004,
+    "name": "Viser Des Shock, Tormentor of the Sun God",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 300302042,
+    "name": "Volcanic Cannon",
+    "type": "Skill Card"
+  },
+  {
+    "id": 56413937,
+    "name": "Warrior of Tradition",
+    "type": "Fusion Monster"
+  },
+  {
+    "id": 300302076,
+    "name": "Welcome to the Jungle",
+    "type": "Skill Card"
+  },
+  {
+    "id": 14732294,
+    "name": "White Knight Lord",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 100461002,
+    "name": "Wicked Canon",
+    "type": "Spell Card"
+  },
+  {
+    "id": 37301660,
+    "name": "WINDS OF VICTORY",
+    "type": "Spell Card"
+  },
+  {
+    "id": 47319141,
+    "name": "Wing Eagle",
+    "type": "Normal Monster"
+  },
+  {
+    "id": 6958567,
+    "name": "Witchcrafter Celebration",
+    "type": "Spell Card"
+  },
+  {
+    "id": 69748261,
+    "name": "Witchcrafter Distortion",
+    "type": "Trap Card"
+  },
+  {
+    "id": 33475154,
+    "name": "Witchcrafter Madame Rilliona",
+    "type": "Fusion Monster"
+  },
+  {
+    "id": 6071005,
+    "name": "Witchcrafter Marka",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 69964858,
+    "name": "Witchcrafter Pupils",
+    "type": "Fusion Monster"
+  },
+  {
+    "id": 59106048,
+    "name": "Witchcrafter Seed",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 70686400,
+    "name": "Witchcrafter Terracottan",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 32353566,
+    "name": "Witchcrafter Walpurgis",
+    "type": "Spell Card"
+  },
+  {
+    "id": 65195679,
+    "name": "Xenovader△ Judgment",
+    "type": "Trap Card"
+  },
+  {
+    "id": 8540055,
+    "name": "Xenovader△ of Blue Tuonela",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 35761342,
+    "name": "Xenovader△ of Emptiness Gehenna",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 34645790,
+    "name": "Xenovader△ of Scarlet Naraka",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 71155456,
+    "name": "Xenovader△ of Sky Sheol",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 33700664,
+    "name": "Xenovader△ Territory - Valvols",
+    "type": "Spell Card"
+  },
+  {
+    "id": 1710647,
+    "name": "Yoa the Plague Deity Ashtra",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 101403037,
+    "name": "Zaltys, Knight of the Winter Raven",
+    "type": "Synchro Monster"
+  },
+  {
+    "id": 12555008,
+    "name": "Zenet Cataract",
+    "type": "Trap Card"
+  },
+  {
+    "id": 72278590,
+    "name": "Zenet Per Akh",
+    "type": "Spell Card"
+  },
+  {
+    "id": 10007434,
+    "name": "Zenet Prophet - Amenhotep",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 84512726,
+    "name": "Zenet Prophet - Nefertari",
+    "type": "Effect Monster"
+  },
+  {
+    "id": 48940617,
+    "name": "Zenet Thunderfall",
+    "type": "Trap Card"
+  },
+  {
+    "id": 10884847,
+    "name": "Zenetmes Nekhbet",
+    "type": "Ritual Effect Monster"
+  },
+  {
+    "id": 47095439,
+    "name": "Zenetnakht Sphinx",
+    "type": "Ritual Effect Monster"
+  },
+  {
+    "id": 100459012,
+    "name": "Zombyra",
+    "type": "Effect Monster"
+  }
+]

@@ -1,0 +1,620 @@
+[
+  {
+    "id": "SDY",
+    "name": "Mazo de inicio de Yugi",
+    "hero": "Dark Magician",
+    "edition": "TCG Norteamérica · 2002",
+    "entries": [
+      {
+        "id": 15025844,
+        "quantity": 1,
+        "code": "SDY-001",
+        "rarity": "Common"
+      },
+      {
+        "id": 41392891,
+        "quantity": 1,
+        "code": "SDY-002",
+        "rarity": "Common"
+      },
+      {
+        "id": 87796900,
+        "quantity": 1,
+        "code": "SDY-003",
+        "rarity": "Common"
+      },
+      {
+        "id": 70781052,
+        "quantity": 1,
+        "code": "SDY-004",
+        "rarity": "Common"
+      },
+      {
+        "id": 32452818,
+        "quantity": 1,
+        "code": "SDY-005",
+        "rarity": "Common"
+      },
+      {
+        "id": 36996508,
+        "quantity": 1,
+        "code": "SDY-006",
+        "rarity": "Ultra Rare"
+      },
+      {
+        "id": 6368038,
+        "quantity": 1,
+        "code": "SDY-007",
+        "rarity": "Common"
+      },
+      {
+        "id": 28279543,
+        "quantity": 1,
+        "code": "SDY-008",
+        "rarity": "Common"
+      },
+      {
+        "id": 91152256,
+        "quantity": 1,
+        "code": "SDY-009",
+        "rarity": "Common"
+      },
+      {
+        "id": 40374923,
+        "quantity": 1,
+        "code": "SDY-010",
+        "rarity": "Common"
+      },
+      {
+        "id": 13429800,
+        "quantity": 1,
+        "code": "SDY-011",
+        "rarity": "Common"
+      },
+      {
+        "id": 90357090,
+        "quantity": 1,
+        "code": "SDY-012",
+        "rarity": "Common"
+      },
+      {
+        "id": 13039848,
+        "quantity": 1,
+        "code": "SDY-013",
+        "rarity": "Common"
+      },
+      {
+        "id": 66672569,
+        "quantity": 1,
+        "code": "SDY-014",
+        "rarity": "Common"
+      },
+      {
+        "id": 16972957,
+        "quantity": 1,
+        "code": "SDY-015",
+        "rarity": "Common"
+      },
+      {
+        "id": 48365709,
+        "quantity": 1,
+        "code": "SDY-016",
+        "rarity": "Common"
+      },
+      {
+        "id": 36304921,
+        "quantity": 1,
+        "code": "SDY-017",
+        "rarity": "Common"
+      },
+      {
+        "id": 41218256,
+        "quantity": 1,
+        "code": "SDY-018",
+        "rarity": "Common"
+      },
+      {
+        "id": 47060154,
+        "quantity": 1,
+        "code": "SDY-019",
+        "rarity": "Common"
+      },
+      {
+        "id": 37120512,
+        "quantity": 1,
+        "code": "SDY-020",
+        "rarity": "Common"
+      },
+      {
+        "id": 91595718,
+        "quantity": 1,
+        "code": "SDY-021",
+        "rarity": "Common"
+      },
+      {
+        "id": 53129443,
+        "quantity": 1,
+        "code": "SDY-022",
+        "rarity": "Common"
+      },
+      {
+        "id": 84257639,
+        "quantity": 1,
+        "code": "SDY-023",
+        "rarity": "Common"
+      },
+      {
+        "id": 93221206,
+        "quantity": 1,
+        "code": "SDY-024",
+        "rarity": "Common"
+      },
+      {
+        "id": 46474915,
+        "quantity": 1,
+        "code": "SDY-025",
+        "rarity": "Common"
+      },
+      {
+        "id": 66788016,
+        "quantity": 1,
+        "code": "SDY-026",
+        "rarity": "Common"
+      },
+      {
+        "id": 4206964,
+        "quantity": 1,
+        "code": "SDY-027",
+        "rarity": "Common"
+      },
+      {
+        "id": 83887306,
+        "quantity": 1,
+        "code": "SDY-028",
+        "rarity": "Common"
+      },
+      {
+        "id": 19159413,
+        "quantity": 1,
+        "code": "SDY-029",
+        "rarity": "Common"
+      },
+      {
+        "id": 83764718,
+        "quantity": 1,
+        "code": "SDY-030",
+        "rarity": "Common"
+      },
+      {
+        "id": 17814387,
+        "quantity": 1,
+        "code": "SDY-031",
+        "rarity": "Common"
+      },
+      {
+        "id": 4031928,
+        "quantity": 1,
+        "code": "SDY-032",
+        "rarity": "Common"
+      },
+      {
+        "id": 87557188,
+        "quantity": 1,
+        "code": "SDY-033",
+        "rarity": "Common"
+      },
+      {
+        "id": 13945283,
+        "quantity": 1,
+        "code": "SDY-034",
+        "rarity": "Common"
+      },
+      {
+        "id": 50930991,
+        "quantity": 1,
+        "code": "SDY-035",
+        "rarity": "Common"
+      },
+      {
+        "id": 86325596,
+        "quantity": 1,
+        "code": "SDY-036",
+        "rarity": "Common"
+      },
+      {
+        "id": 13723605,
+        "quantity": 1,
+        "code": "SDY-037",
+        "rarity": "Common"
+      },
+      {
+        "id": 49218300,
+        "quantity": 1,
+        "code": "SDY-038",
+        "rarity": "Common"
+      },
+      {
+        "id": 85602018,
+        "quantity": 1,
+        "code": "SDY-039",
+        "rarity": "Common"
+      },
+      {
+        "id": 12607053,
+        "quantity": 1,
+        "code": "SDY-040",
+        "rarity": "Common"
+      },
+      {
+        "id": 68005187,
+        "quantity": 1,
+        "code": "SDY-041",
+        "rarity": "Super Rare"
+      },
+      {
+        "id": 72892473,
+        "quantity": 1,
+        "code": "SDY-042",
+        "rarity": "Super Rare"
+      },
+      {
+        "id": 46461247,
+        "quantity": 1,
+        "code": "SDY-043",
+        "rarity": "Common"
+      },
+      {
+        "id": 50045299,
+        "quantity": 1,
+        "code": "SDY-044",
+        "rarity": "Common"
+      },
+      {
+        "id": 59197169,
+        "quantity": 1,
+        "code": "SDY-045",
+        "rarity": "Common"
+      },
+      {
+        "id": 54652250,
+        "quantity": 1,
+        "code": "SDY-046",
+        "rarity": "Common"
+      },
+      {
+        "id": 77622396,
+        "quantity": 1,
+        "code": "SDY-047",
+        "rarity": "Common"
+      },
+      {
+        "id": 51482758,
+        "quantity": 1,
+        "code": "SDY-048",
+        "rarity": "Common"
+      },
+      {
+        "id": 44209392,
+        "quantity": 1,
+        "code": "SDY-049",
+        "rarity": "Common"
+      },
+      {
+        "id": 80604091,
+        "quantity": 1,
+        "code": "SDY-050",
+        "rarity": "Common"
+      }
+    ],
+    "source": "https://yugioh.fandom.com/wiki/Set_Card_Lists:Starter_Deck:_Yugi_(TCG-NA)"
+  },
+  {
+    "id": "SDK",
+    "name": "Mazo de inicio de Kaiba",
+    "hero": "Blue-Eyes White Dragon",
+    "edition": "TCG Norteamérica · 2002",
+    "entries": [
+      {
+        "id": 89631139,
+        "quantity": 1,
+        "code": "SDK-001",
+        "rarity": "Ultra Rare"
+      },
+      {
+        "id": 76184692,
+        "quantity": 1,
+        "code": "SDK-002",
+        "rarity": "Common"
+      },
+      {
+        "id": 15303296,
+        "quantity": 1,
+        "code": "SDK-003",
+        "rarity": "Common"
+      },
+      {
+        "id": 6285791,
+        "quantity": 1,
+        "code": "SDK-004",
+        "rarity": "Common"
+      },
+      {
+        "id": 5053103,
+        "quantity": 1,
+        "code": "SDK-005",
+        "rarity": "Common"
+      },
+      {
+        "id": 67724379,
+        "quantity": 1,
+        "code": "SDK-006",
+        "rarity": "Common"
+      },
+      {
+        "id": 30113682,
+        "quantity": 1,
+        "code": "SDK-007",
+        "rarity": "Common"
+      },
+      {
+        "id": 91939608,
+        "quantity": 1,
+        "code": "SDK-008",
+        "rarity": "Common"
+      },
+      {
+        "id": 1184620,
+        "quantity": 1,
+        "code": "SDK-009",
+        "rarity": "Common"
+      },
+      {
+        "id": 1784619,
+        "quantity": 1,
+        "code": "SDK-010",
+        "rarity": "Common"
+      },
+      {
+        "id": 31122090,
+        "quantity": 1,
+        "code": "SDK-011",
+        "rarity": "Common"
+      },
+      {
+        "id": 68516705,
+        "quantity": 1,
+        "code": "SDK-012",
+        "rarity": "Common"
+      },
+      {
+        "id": 63308047,
+        "quantity": 1,
+        "code": "SDK-013",
+        "rarity": "Common"
+      },
+      {
+        "id": 89494469,
+        "quantity": 1,
+        "code": "SDK-014",
+        "rarity": "Common"
+      },
+      {
+        "id": 41949033,
+        "quantity": 1,
+        "code": "SDK-015",
+        "rarity": "Common"
+      },
+      {
+        "id": 75499502,
+        "quantity": 1,
+        "code": "SDK-016",
+        "rarity": "Common"
+      },
+      {
+        "id": 97360116,
+        "quantity": 1,
+        "code": "SDK-017",
+        "rarity": "Common"
+      },
+      {
+        "id": 47060154,
+        "quantity": 1,
+        "code": "SDK-018",
+        "rarity": "Common"
+      },
+      {
+        "id": 45121025,
+        "quantity": 1,
+        "code": "SDK-019",
+        "rarity": "Common"
+      },
+      {
+        "id": 4614116,
+        "quantity": 1,
+        "code": "SDK-020",
+        "rarity": "Common"
+      },
+      {
+        "id": 98374133,
+        "quantity": 1,
+        "code": "SDK-021",
+        "rarity": "Common"
+      },
+      {
+        "id": 53129443,
+        "quantity": 1,
+        "code": "SDK-022",
+        "rarity": "Common"
+      },
+      {
+        "id": 19523799,
+        "quantity": 1,
+        "code": "SDK-023",
+        "rarity": "Common"
+      },
+      {
+        "id": 24611934,
+        "quantity": 1,
+        "code": "SDK-024",
+        "rarity": "Common"
+      },
+      {
+        "id": 50005633,
+        "quantity": 1,
+        "code": "SDK-025",
+        "rarity": "Common"
+      },
+      {
+        "id": 97590747,
+        "quantity": 1,
+        "code": "SDK-026",
+        "rarity": "Common"
+      },
+      {
+        "id": 26378150,
+        "quantity": 1,
+        "code": "SDK-027",
+        "rarity": "Common"
+      },
+      {
+        "id": 73481154,
+        "quantity": 1,
+        "code": "SDK-028",
+        "rarity": "Common"
+      },
+      {
+        "id": 10202894,
+        "quantity": 1,
+        "code": "SDK-029",
+        "rarity": "Common"
+      },
+      {
+        "id": 81057959,
+        "quantity": 1,
+        "code": "SDK-030",
+        "rarity": "Common"
+      },
+      {
+        "id": 21263083,
+        "quantity": 1,
+        "code": "SDK-031",
+        "rarity": "Common"
+      },
+      {
+        "id": 66788016,
+        "quantity": 1,
+        "code": "SDK-032",
+        "rarity": "Common"
+      },
+      {
+        "id": 4206964,
+        "quantity": 1,
+        "code": "SDK-033",
+        "rarity": "Common"
+      },
+      {
+        "id": 83887306,
+        "quantity": 1,
+        "code": "SDK-034",
+        "rarity": "Common"
+      },
+      {
+        "id": 19159413,
+        "quantity": 1,
+        "code": "SDK-035",
+        "rarity": "Common"
+      },
+      {
+        "id": 83764718,
+        "quantity": 1,
+        "code": "SDK-036",
+        "rarity": "Common"
+      },
+      {
+        "id": 81820689,
+        "quantity": 1,
+        "code": "SDK-037",
+        "rarity": "Common"
+      },
+      {
+        "id": 17814387,
+        "quantity": 1,
+        "code": "SDK-038",
+        "rarity": "Common"
+      },
+      {
+        "id": 17092736,
+        "quantity": 1,
+        "code": "SDK-039",
+        "rarity": "Common"
+      },
+      {
+        "id": 24068492,
+        "quantity": 1,
+        "code": "SDK-040",
+        "rarity": "Common"
+      },
+      {
+        "id": 17985575,
+        "quantity": 1,
+        "code": "SDK-041",
+        "rarity": "Super Rare"
+      },
+      {
+        "id": 43973174,
+        "quantity": 1,
+        "code": "SDK-042",
+        "rarity": "Super Rare"
+      },
+      {
+        "id": 54098121,
+        "quantity": 1,
+        "code": "SDK-043",
+        "rarity": "Common"
+      },
+      {
+        "id": 46461247,
+        "quantity": 1,
+        "code": "SDK-044",
+        "rarity": "Common"
+      },
+      {
+        "id": 86318356,
+        "quantity": 1,
+        "code": "SDK-045",
+        "rarity": "Common"
+      },
+      {
+        "id": 7089711,
+        "quantity": 1,
+        "code": "SDK-046",
+        "rarity": "Common"
+      },
+      {
+        "id": 77622396,
+        "quantity": 1,
+        "code": "SDK-047",
+        "rarity": "Common"
+      },
+      {
+        "id": 51482758,
+        "quantity": 1,
+        "code": "SDK-048",
+        "rarity": "Common"
+      },
+      {
+        "id": 44209392,
+        "quantity": 1,
+        "code": "SDK-049",
+        "rarity": "Common"
+      },
+      {
+        "id": 80604091,
+        "quantity": 1,
+        "code": "SDK-050",
+        "rarity": "Common"
+      }
+    ],
+    "source": "https://yugioh.fandom.com/wiki/Set_Card_Lists:Starter_Deck:_Kaiba_(TCG-NA)"
+  }
+]

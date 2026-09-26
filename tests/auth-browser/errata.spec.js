@@ -1,0 +1,58 @@
+import { test, expect } from '@playwright/test';
+import { randomUUID } from 'node:crypto';
+import { mkdir } from 'node:fs/promises';
+import { database, schema } from '../../server/lib/database.mjs';
+import { hashPassword } from '../../server/lib/auth.mjs';
+import { createProgress } from '../../app/utils/progress.js';
+import { addCopies } from '../../app/utils/inventory.js';
+import { saveExpansion } from '../../app/utils/expansions.js';
+
+const id = randomUUID(), username = 'errata-' + id.slice(0, 8), password = 'Prueba-erratas-2026';
+test.beforeAll(async () => {
+  expect(new URL(process.env.DATABASE_URL).pathname).toMatch(/_test$/);
+  await database().query(schema);
+  await database().query('INSERT INTO vault_users(id,username,password_hash,role) VALUES($1,$2,$3,$4)', [id, username, await hashPassword(password), 'admin']);
+  await mkdir('.data/errata-review', { recursive: true });
+});
+test.afterAll(async () => {
+  await database().query('DELETE FROM vault_users WHERE id=$1', [id]);
+  await database().end();
+});
+test('variantes y rarezas en colección, persistencia y móvil', async ({ page }) => {
+  const errors = []; page.on('pageerror', e => errors.push(e.message));
+  await page.setViewportSize({ width: 1440, height: 1000 });
+  await page.goto('/login');
+  await page.getByLabel('Usuario', { exact: true }).fill(username);
+  await page.getByLabel('Contraseña', { exact: true }).fill(password);
+  await page.getByRole('button', { name: 'Ingresar', exact: true }).click();
+  await expect(page).toHaveURL(/\/formatos$/);
+  const state = createProgress();
+  saveExpansion(state, { id: 'custom-errata', name: 'Erratas de prueba', status: 'published', cost: 1, size: 1, entries: [{ id: '26202165:errata', copies: 3, remaining: 3, rarity: 'Common' }] });
+  addCopies(state, '26202165', 2, { source: 'MRD', sourceName: 'Metal Raiders', rarity: 'Rare' });
+  addCopies(state, '26202165', 1, { source: 'test', sourceName: 'Prueba', rarity: 'Common' });
+  addCopies(state, '26202165:errata', 1, { source: 'custom-errata', sourceName: 'Erratas de prueba', rarity: 'Common' });
+  await page.getByRole('button', { name: 'Guardar / cargar', exact: true }).click();
+  await page.locator('input[type="file"]').setInputFiles({ name: 'errata.json', mimeType: 'application/json', buffer: Buffer.from(JSON.stringify(state)) });
+  await page.getByRole('button', { name: 'Importar mi progreso y configuración compartida', exact: true }).click();
+  await page.getByRole('button', { name: 'Importar copia', exact: true }).click();
+  await page.goto('/coleccion');
+  await page.getByLabel('Buscar cartas', { exact: true }).fill('Sangan');
+  await expect(page.locator('.cards .card')).toHaveCount(2);
+  await expect(page.locator('.cards .rarity')).toHaveCount(0);
+  await expect(page.locator('.cards .errata-badge')).toHaveCount(1);
+  await page.screenshot({ path: '.data/errata-review/collection-desktop.png', fullPage: true });
+  await page.getByRole('button', { name: 'Ver Sangan', exact: true }).click();
+  await expect(page.getByRole('list', { name: 'Cantidad total por rareza' })).toContainText('2 copias');
+  await expect(page.getByRole('list', { name: 'Cantidad total por rareza' })).toContainText('1 copias');
+  await page.screenshot({ path: '.data/errata-review/detail-desktop.png', fullPage: true });
+  await page.keyboard.press('Escape');
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.screenshot({ path: '.data/errata-review/collection-mobile.png', fullPage: true });
+  await page.getByRole('button', { name: 'Ver Sangan · post-errata', exact: true }).click();
+  await page.screenshot({ path: '.data/errata-review/detail-mobile.png', fullPage: true });
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  await page.reload();
+  await page.getByLabel('Buscar cartas', { exact: true }).fill('Sangan');
+  await expect(page.getByRole('button', { name: 'Ver Sangan · post-errata', exact: true }).locator('.copies')).toHaveText('1×');
+  expect(errors).toEqual([]);
+});

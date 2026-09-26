@@ -1,0 +1,27 @@
+export function defaultFilters() {
+  return {
+    archetype: "",
+    officialSet: "",
+    search: "",
+    set: "",
+    rarity: "",
+    onlyOwned: false,
+    ownership: "",
+    searchEffect: false,
+    sort: "name",
+    direction: "asc",
+    attributes: [],
+    races: [],
+    categories: [],
+    types: [],
+    properties: [],
+    atkMin: "",
+    atkMax: "",
+    defMin: "",
+    defMax: "",
+    levelMin: "",
+    levelMax: "",
+    copiesMin: "",
+    copiesMax: "",
+  };
+}

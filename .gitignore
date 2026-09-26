@@ -1,0 +1,17 @@
+node_modules/
+.nuxt/
+.output/
+.data/
+coverage/
+test-results/
+.env
+.env.*
+!.env.example
+.tools/
+.openai/
+.impeccable/review/
+.impeccable/config.local.json
+test-results*/
+playwright-report/
+blob-report/
+*.log

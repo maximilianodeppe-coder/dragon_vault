@@ -1,0 +1,85 @@
+DRAGON VAULT — GUÍA RÁPIDA
+Estado documentado: 26 de septiembre de 2026.
+
+INICIAR EN ESTA COMPUTADORA
+Hacé doble clic en «Iniciar Dragon Vault.cmd» y abrí http://127.0.0.1:3000.
+El iniciador levanta PostgreSQL local y la compilación de Nuxt. El servidor sigue
+activo al cerrar el chat; después de reiniciar Windows hay que iniciarlo otra vez.
+La cuenta administradora local ya existe. Sus credenciales están únicamente en
+.data/local-access.txt; no se incluyen en documentos ni en Git.
+
+INSTALACIÓN NUEVA
+Requiere Node.js 24 o posterior y PostgreSQL. Consultá README.md y .env.example.
+Ejecutá npm ci, configurá la conexión y el secreto JWT, ejecutá npm run db:migrate
+y creá la primera cuenta con npm run db:admin. Para desarrollo: npm run dev.
+Para producción: npm run build y un servidor Nuxt detrás de HTTPS.
+setup-local.mjs depende de binarios locales que no se distribuyen en Git.
+
+CUENTAS Y PERMISOS
+Ingreso obligatorio con usuario y contraseña. No hay registro público ni recuperación
+por correo. El administrador crea cuentas, asigna roles, bloquea usuarios y agrega
+monedas desde Usuarios. Siempre debe quedar al menos un administrador activo.
+Las contraseñas se guardan como hashes bcrypt. La sesión JWT dura una semana;
+se permiten varios dispositivos y Salir cierra únicamente la sesión actual.
+
+PROGRESO Y RESPALDOS
+PostgreSQL guarda monedas, colección y mazos por cuenta. Cajas, productos, ofertas,
+existencias, precios, formatos y banlists son compartidos. El servidor valida
+compras y permisos antes de guardar y mostrar resultados.
+Cada cuenta recibe 1.000 monedas iniciales, virtuales y sin dinero real.
+Todos pueden descargar una copia; solo administradores pueden importar.
+«Guardar / cargar → Importar progreso de este navegador» conserva el guardado
+local original. También se puede elegir un JSON compatible de las versiones 1–7.
+La importación reemplaza el progreso de esa cuenta y la configuración compartida,
+sin reemplazar colecciones ajenas. Revisá la confirmación antes de importar.
+No se importa automáticamente el contenido de las pestañas del navegador.
+El JSON de una cuenta no sustituye el backup completo de PostgreSQL.
+
+CATÁLOGO Y PRODUCTOS
+Se conservan las 422 cartas clásicas y los mazos Yugi y Kaiba. El catálogo completo
+de YGOPRODeck y las traducciones comunitarias se revisan diariamente mientras
+el servidor esté encendido. Las traducciones ausentes se indican como pendientes.
+Expansiones reúne el archivo oficial y el editor administrativo. Los productos
+pueden ser sobres o lotes fijos, con borrador/publicación y formato propio.
+Publicar habilita cartas según las reglas del formato, pero no entrega copias.
+Las cajas clásicas tienen 500 cartas; cada sobre cuesta 5 monedas y entrega hasta
+5 cartas. El sorteo usa copias restantes sin reposición ni rareza garantizada.
+Los productos personalizados tienen precio y contenido configurables.
+El administrador repone cajas. Cambiar presentación o precio no repone stock.
+
+COLECCIÓN, TIENDA Y MAZOS
+La colección reúne copias por carta y variante. La grilla no muestra rarezas;
+la ficha resume cantidades por rareza y desglosa expansión y formato.
+La tienda entrega copias comunes no vendibles, con precio individual por oferta.
+Las ventas de otras copias usan su rareza real y protegen las necesarias para mazos.
+La venta rápida conserva al menos tres copias vendibles por carta y formato.
+Cada formato tiene una lista de permitidas: ausencia o 0 excluye la carta.
+Las banlists adicionales solo restringen más; pueden usar límites individuales
+o cupos compartidos 1/2/3. El administrador edita reglas; el jugador las consulta.
+Estándar: 40–60 principales y hasta 15 de Extra. Speed Duel: 20–30 y hasta 6 de Extra.
+Los mazos incompletos quedan como borradores. Las cartas deben haberse obtenido
+en su formato. Se conservan los botones alternativos al arrastre.
+
+VARIANTES Y ERRATAS
+Sangan, Bruja del Bosque Negro, Tortuga Catapulta y Se Aproxima la Oscuridad
+tienen versión histórica y post-errata diferenciadas. La variante actual usa
+una E en un círculo; comparte ilustración, pero no cantidades adquiridas.
+El máximo general de tres copias se cuenta entre variantes de la misma carta.
+Los cambios de efecto detectados por la sincronización quedan para revisión;
+no crean variantes automáticamente ni sobrescriben el texto histórico.
+No se trata de una auditoría exhaustiva del historial de erratas.
+
+DOCUMENTACIÓN Y ESTADO
+README.md: instalación, migración, pruebas y despliegue.
+PRODUCT.md: alcance funcional. DESIGN.md: sistema visual vigente.
+.impeccable/surfaces/: detalles de las superficies y sus permisos.
+dist/ conserva el prototipo estático del 23/09/2026 para recuperación y comparación;
+sus mensajes sobre guardado solo local describen esa versión histórica.
+Git está inicializado en esta carpeta. Credenciales, bases, herramientas locales,
+dependencias, compilaciones y resultados de pruebas quedan fuera del versionado.
+El despliegue público con HTTPS y la verificación de Docker en destino siguen pendientes.
+No incluye duelos, intercambios, Side Deck ni habilidades. La compatibilidad de
+exportación con MDpro3 sigue siendo un requisito pendiente de verificación.
+
+Proyecto de estudio no oficial. Fuentes y procedencia de imágenes: README.md y
+los archivos card-back-source.txt junto a los recursos correspondientes.

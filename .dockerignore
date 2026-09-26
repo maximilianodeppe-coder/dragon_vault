@@ -1,0 +1,11 @@
+node_modules
+.nuxt
+.output
+.data
+.impeccable/review
+.git
+.env
+dist
+test-results
+tests
+*.log

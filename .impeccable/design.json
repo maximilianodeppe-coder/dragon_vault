@@ -1,0 +1,539 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-23T22:15:01.758Z",
+  "title": "Design System: Dragon Vault",
+  "extensions": {
+    "colorMeta": {
+      "bg": {
+        "role": "neutral",
+        "displayName": "Azul noche",
+        "tonalRamp": [
+          "oklch(15.00% 0.02227 263.76)",
+          "oklch(26.43% 0.02227 263.76)",
+          "oklch(37.86% 0.02227 263.76)",
+          "oklch(49.29% 0.02227 263.76)",
+          "oklch(60.71% 0.02227 263.76)",
+          "oklch(72.14% 0.02227 263.76)",
+          "oklch(83.57% 0.02227 263.76)",
+          "oklch(95.00% 0.02227 263.76)"
+        ]
+      },
+      "panel": {
+        "role": "neutral",
+        "displayName": "Azul de panel",
+        "tonalRamp": [
+          "oklch(15.00% 0.03101 256.88)",
+          "oklch(26.43% 0.03101 256.88)",
+          "oklch(37.86% 0.03101 256.88)",
+          "oklch(49.29% 0.03101 256.88)",
+          "oklch(60.71% 0.03101 256.88)",
+          "oklch(72.14% 0.03101 256.88)",
+          "oklch(83.57% 0.03101 256.88)",
+          "oklch(95.00% 0.03101 256.88)"
+        ]
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Borde pizarra",
+        "tonalRamp": [
+          "oklch(15.00% 0.03185 259.69)",
+          "oklch(26.43% 0.03185 259.69)",
+          "oklch(37.86% 0.03185 259.69)",
+          "oklch(49.29% 0.03185 259.69)",
+          "oklch(60.71% 0.03185 259.69)",
+          "oklch(72.14% 0.03185 259.69)",
+          "oklch(83.57% 0.03185 259.69)",
+          "oklch(95.00% 0.03185 259.69)"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Plata azulada",
+        "tonalRamp": [
+          "oklch(15.00% 0.02915 258.37)",
+          "oklch(26.43% 0.02915 258.37)",
+          "oklch(37.86% 0.02915 258.37)",
+          "oklch(49.29% 0.02915 258.37)",
+          "oklch(60.71% 0.02915 258.37)",
+          "oklch(72.14% 0.02915 258.37)",
+          "oklch(83.57% 0.02915 258.37)",
+          "oklch(95.00% 0.02915 258.37)"
+        ]
+      },
+      "gold": {
+        "role": "primary",
+        "displayName": "Oro antiguo",
+        "tonalRamp": [
+          "oklch(15.00% 0.08317 81.96)",
+          "oklch(26.43% 0.08317 81.96)",
+          "oklch(37.86% 0.08317 81.96)",
+          "oklch(49.29% 0.08317 81.96)",
+          "oklch(60.71% 0.08317 81.96)",
+          "oklch(72.14% 0.08317 81.96)",
+          "oklch(83.57% 0.08317 81.96)",
+          "oklch(95.00% 0.08317 81.96)"
+        ]
+      },
+      "text": {
+        "role": "neutral",
+        "displayName": "Blanco frío",
+        "tonalRamp": [
+          "oklch(15.00% 0.00701 268.55)",
+          "oklch(26.43% 0.00701 268.55)",
+          "oklch(37.86% 0.00701 268.55)",
+          "oklch(49.29% 0.00701 268.55)",
+          "oklch(60.71% 0.00701 268.55)",
+          "oklch(72.14% 0.00701 268.55)",
+          "oklch(83.57% 0.00701 268.55)",
+          "oklch(95.00% 0.00701 268.55)"
+        ]
+      },
+      "button": {
+        "role": "neutral",
+        "displayName": "button",
+        "tonalRamp": [
+          "oklch(15.00% 0.03400 257.67)",
+          "oklch(26.43% 0.03400 257.67)",
+          "oklch(37.86% 0.03400 257.67)",
+          "oklch(49.29% 0.03400 257.67)",
+          "oklch(60.71% 0.03400 257.67)",
+          "oklch(72.14% 0.03400 257.67)",
+          "oklch(83.57% 0.03400 257.67)",
+          "oklch(95.00% 0.03400 257.67)"
+        ]
+      },
+      "button-hover": {
+        "role": "neutral",
+        "displayName": "button-hover",
+        "tonalRamp": [
+          "oklch(15.00% 0.04180 259.78)",
+          "oklch(26.43% 0.04180 259.78)",
+          "oklch(37.86% 0.04180 259.78)",
+          "oklch(49.29% 0.04180 259.78)",
+          "oklch(60.71% 0.04180 259.78)",
+          "oklch(72.14% 0.04180 259.78)",
+          "oklch(83.57% 0.04180 259.78)",
+          "oklch(95.00% 0.04180 259.78)"
+        ]
+      },
+      "primary-ink": {
+        "role": "neutral",
+        "displayName": "primary-ink",
+        "tonalRamp": [
+          "oklch(15.00% 0.02999 259.05)",
+          "oklch(26.43% 0.02999 259.05)",
+          "oklch(37.86% 0.02999 259.05)",
+          "oklch(49.29% 0.02999 259.05)",
+          "oklch(60.71% 0.02999 259.05)",
+          "oklch(72.14% 0.02999 259.05)",
+          "oklch(83.57% 0.02999 259.05)",
+          "oklch(95.00% 0.02999 259.05)"
+        ]
+      },
+      "primary-hover": {
+        "role": "neutral",
+        "displayName": "primary-hover",
+        "tonalRamp": [
+          "oklch(15.00% 0.06631 81.75)",
+          "oklch(26.43% 0.06631 81.75)",
+          "oklch(37.86% 0.06631 81.75)",
+          "oklch(49.29% 0.06631 81.75)",
+          "oklch(60.71% 0.06631 81.75)",
+          "oklch(72.14% 0.06631 81.75)",
+          "oklch(83.57% 0.06631 81.75)",
+          "oklch(95.00% 0.06631 81.75)"
+        ]
+      },
+      "primary-hover-ink": {
+        "role": "neutral",
+        "displayName": "primary-hover-ink",
+        "tonalRamp": [
+          "oklch(15.00% 0.03317 258.28)",
+          "oklch(26.43% 0.03317 258.28)",
+          "oklch(37.86% 0.03317 258.28)",
+          "oklch(49.29% 0.03317 258.28)",
+          "oklch(60.71% 0.03317 258.28)",
+          "oklch(72.14% 0.03317 258.28)",
+          "oklch(83.57% 0.03317 258.28)",
+          "oklch(95.00% 0.03317 258.28)"
+        ]
+      },
+      "field": {
+        "role": "neutral",
+        "displayName": "field",
+        "tonalRamp": [
+          "oklch(15.00% 0.03260 258.29)",
+          "oklch(26.43% 0.03260 258.29)",
+          "oklch(37.86% 0.03260 258.29)",
+          "oklch(49.29% 0.03260 258.29)",
+          "oklch(60.71% 0.03260 258.29)",
+          "oklch(72.14% 0.03260 258.29)",
+          "oklch(83.57% 0.03260 258.29)",
+          "oklch(95.00% 0.03260 258.29)"
+        ]
+      },
+      "field-line": {
+        "role": "neutral",
+        "displayName": "field-line",
+        "tonalRamp": [
+          "oklch(15.00% 0.03918 259.89)",
+          "oklch(26.43% 0.03918 259.89)",
+          "oklch(37.86% 0.03918 259.89)",
+          "oklch(49.29% 0.03918 259.89)",
+          "oklch(60.71% 0.03918 259.89)",
+          "oklch(72.14% 0.03918 259.89)",
+          "oklch(83.57% 0.03918 259.89)",
+          "oklch(95.00% 0.03918 259.89)"
+        ]
+      },
+      "white": {
+        "role": "neutral",
+        "displayName": "white",
+        "tonalRamp": [
+          "oklch(15.00% 0.00000 89.88)",
+          "oklch(26.43% 0.00000 89.88)",
+          "oklch(37.86% 0.00000 89.88)",
+          "oklch(49.29% 0.00000 89.88)",
+          "oklch(60.71% 0.00000 89.88)",
+          "oklch(72.14% 0.00000 89.88)",
+          "oklch(83.57% 0.00000 89.88)",
+          "oklch(95.00% 0.00000 89.88)"
+        ]
+      },
+      "rarity-common": {
+        "role": "semantic",
+        "displayName": "rarity-common",
+        "tonalRamp": [
+          "oklch(15.00% 0.03202 257.78)",
+          "oklch(26.43% 0.03202 257.78)",
+          "oklch(37.86% 0.03202 257.78)",
+          "oklch(49.29% 0.03202 257.78)",
+          "oklch(60.71% 0.03202 257.78)",
+          "oklch(72.14% 0.03202 257.78)",
+          "oklch(83.57% 0.03202 257.78)",
+          "oklch(95.00% 0.03202 257.78)"
+        ]
+      },
+      "rarity-rare": {
+        "role": "semantic",
+        "displayName": "rarity-rare",
+        "tonalRamp": [
+          "oklch(15.00% 0.09852 246.51)",
+          "oklch(26.43% 0.09852 246.51)",
+          "oklch(37.86% 0.09852 246.51)",
+          "oklch(49.29% 0.09852 246.51)",
+          "oklch(60.71% 0.09852 246.51)",
+          "oklch(72.14% 0.09852 246.51)",
+          "oklch(83.57% 0.09852 246.51)",
+          "oklch(95.00% 0.09852 246.51)"
+        ]
+      },
+      "rarity-super": {
+        "role": "semantic",
+        "displayName": "rarity-super",
+        "tonalRamp": [
+          "oklch(15.00% 0.14409 294.99)",
+          "oklch(26.43% 0.14409 294.99)",
+          "oklch(37.86% 0.14409 294.99)",
+          "oklch(49.29% 0.14409 294.99)",
+          "oklch(60.71% 0.14409 294.99)",
+          "oklch(72.14% 0.14409 294.99)",
+          "oklch(83.57% 0.14409 294.99)",
+          "oklch(95.00% 0.14409 294.99)"
+        ]
+      },
+      "rarity-ultra-secret": {
+        "role": "semantic",
+        "displayName": "rarity-ultra-secret",
+        "tonalRamp": [
+          "oklch(15.00% 0.12406 86.00)",
+          "oklch(26.43% 0.12406 86.00)",
+          "oklch(37.86% 0.12406 86.00)",
+          "oklch(49.29% 0.12406 86.00)",
+          "oklch(60.71% 0.12406 86.00)",
+          "oklch(72.14% 0.12406 86.00)",
+          "oklch(83.57% 0.12406 86.00)",
+          "oklch(95.00% 0.12406 86.00)"
+        ]
+      },
+      "danger-text": {
+        "role": "semantic",
+        "displayName": "danger-text",
+        "tonalRamp": [
+          "oklch(15.00% 0.07079 23.99)",
+          "oklch(26.43% 0.07079 23.99)",
+          "oklch(37.86% 0.07079 23.99)",
+          "oklch(49.29% 0.07079 23.99)",
+          "oklch(60.71% 0.07079 23.99)",
+          "oklch(72.14% 0.07079 23.99)",
+          "oklch(83.57% 0.07079 23.99)",
+          "oklch(95.00% 0.07079 23.99)"
+        ]
+      },
+      "danger-bg": {
+        "role": "semantic",
+        "displayName": "danger-bg",
+        "tonalRamp": [
+          "oklch(15.00% 0.04503 4.47)",
+          "oklch(26.43% 0.04503 4.47)",
+          "oklch(37.86% 0.04503 4.47)",
+          "oklch(49.29% 0.04503 4.47)",
+          "oklch(60.71% 0.04503 4.47)",
+          "oklch(72.14% 0.04503 4.47)",
+          "oklch(83.57% 0.04503 4.47)",
+          "oklch(95.00% 0.04503 4.47)"
+        ]
+      },
+      "danger-line": {
+        "role": "semantic",
+        "displayName": "danger-line",
+        "tonalRamp": [
+          "oklch(15.00% 0.10624 21.02)",
+          "oklch(26.43% 0.10624 21.02)",
+          "oklch(37.86% 0.10624 21.02)",
+          "oklch(49.29% 0.10624 21.02)",
+          "oklch(60.71% 0.10624 21.02)",
+          "oklch(72.14% 0.10624 21.02)",
+          "oklch(83.57% 0.10624 21.02)",
+          "oklch(95.00% 0.10624 21.02)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Título principal",
+        "purpose": "Encabezado h1."
+      },
+      "headline": {
+        "displayName": "Título de producto",
+        "purpose": "Productos iniciales y ficha individual."
+      },
+      "title": {
+        "displayName": "Título de sección",
+        "purpose": "Secciones y áreas de trabajo."
+      }
+    },
+    "shadows": [
+      {
+        "name": "rarity-rare",
+        "value": "0 0 9px #71bcff40",
+        "purpose": "Cartas raras."
+      },
+      {
+        "name": "rarity-super",
+        "value": "0 0 13px #b899ff65",
+        "purpose": "Cartas súper raras."
+      },
+      {
+        "name": "rarity-ultra",
+        "value": "0 0 16px #f4ca6a80, 0 0 3px #fff3cb",
+        "purpose": "Cartas ultra raras."
+      },
+      {
+        "name": "rarity-secret",
+        "value": "0 0 17px #f4ca6a80, 3px 0 8px #c8aaff55",
+        "purpose": "Cartas secretas."
+      },
+      {
+        "name": "starter",
+        "value": "0 12px 30px #0008",
+        "purpose": "Imagen de producto inicial."
+      },
+      {
+        "name": "sealed-pack",
+        "value": "0 18px 35px #0009",
+        "purpose": "Sobre sellado."
+      }
+    ],
+    "motion": [
+      {
+        "name": "card-hover",
+        "value": "transform .2s",
+        "purpose": "Elevación de imagen de carta 6px."
+      },
+      {
+        "name": "card-flip",
+        "value": "transform .65s cubic-bezier(.2,.7,.2,1)",
+        "purpose": "Giro de carta."
+      },
+      {
+        "name": "pack-tremble",
+        "value": "pack-tremble .8s ease-in-out",
+        "purpose": "Inicio de apertura."
+      },
+      {
+        "name": "cut-pack",
+        "value": "cut-pack .45s .25s forwards",
+        "purpose": "Corte del sobre."
+      },
+      {
+        "name": "tear-top",
+        "value": "tear-top .6s .55s forwards",
+        "purpose": "Desprendimiento superior."
+      },
+      {
+        "name": "aura-burst",
+        "value": "aura-burst 1.3s both",
+        "purpose": "Aura de rareza."
+      },
+      {
+        "name": "secret-shine",
+        "value": "secret-shine 1s both",
+        "purpose": "Destello de carta secreta."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}",
+        "purpose": "Regla existente de movimiento reducido."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "max-1000",
+        "value": "1000px"
+      },
+      {
+        "name": "max-850",
+        "value": "850px"
+      },
+      {
+        "name": "max-800",
+        "value": "800px"
+      },
+      {
+        "name": "max-650",
+        "value": "650px"
+      },
+      {
+        "name": "max-600",
+        "value": "600px"
+      },
+      {
+        "name": "max-560",
+        "value": "560px"
+      },
+      {
+        "name": "max-520",
+        "value": "520px"
+      },
+      {
+        "name": "max-500",
+        "value": "500px"
+      }
+    ],
+    "provenance": {
+      "source": "dist/style.css; dist/index.html; módulos de dist/",
+      "verification": "Extracción de código; inspección renderizada bloqueada por política de URL del navegador.",
+      "tonalRamps": "Escalas OKLCH sintetizadas únicamente para las muestras del panel; no son colores implementados ni nuevos tokens normativos.",
+      "componentPreviews": "Snippets estáticos del estilo existente. Los nombres de clases ds- aíslan las muestras. El contenedor de tienda omite la imagen de carta."
+    }
+  },
+  "components": [
+    {
+      "name": "Botón principal",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Variante extraída del botón existente.",
+      "html": "<button class=\"ds-primary\">Abrir sobre</button>",
+      "css": ".ds-primary{font-family:'DM Sans',sans-serif;font-size:16px;cursor:pointer;border:1px solid var(--line,#293343);border-radius:7px;background:#1a2535;color:var(--text,#f1f3f8);padding:11px 18px;background:var(--gold,#e5c58b);color:#17202e;font-weight:700;border-color:var(--gold,#e5c58b);}.ds-primary:hover{background:#f6dcae;color:#101a29;border-color:var(--gold,#e5c58b);}.ds-primary:focus-visible{outline:2px solid var(--gold,#e5c58b);outline-offset:4px;}.ds-primary:disabled{opacity:.5;cursor:wait;}"
+    },
+    {
+      "name": "Botón estándar",
+      "kind": "button",
+      "refersTo": "button",
+      "description": "Variante extraída del botón existente.",
+      "html": "<button class=\"ds-button\">Ver contenido</button>",
+      "css": ".ds-button{font-family:'DM Sans',sans-serif;font-size:16px;cursor:pointer;border:1px solid var(--line,#293343);border-radius:7px;background:#1a2535;color:var(--text,#f1f3f8);padding:11px 18px;}.ds-button:hover{border-color:var(--gold,#e5c58b);background:#253247;}.ds-button:focus-visible{outline:2px solid var(--gold,#e5c58b);outline-offset:4px;}.ds-button:disabled{opacity:.5;cursor:wait;}"
+    },
+    {
+      "name": "Botón discreto",
+      "kind": "button",
+      "refersTo": "button-quiet",
+      "description": "Variante extraída del botón existente.",
+      "html": "<button class=\"ds-quiet\">Guardar / cargar</button>",
+      "css": ".ds-quiet{font-family:'DM Sans',sans-serif;font-size:16px;cursor:pointer;border:1px solid var(--line,#293343);border-radius:7px;background:#1a2535;color:var(--text,#f1f3f8);padding:11px 18px;background:transparent;color:var(--muted,#a5b1c3);font-size:14px;}.ds-quiet:hover{border-color:var(--gold,#e5c58b);background:#253247;}.ds-quiet:focus-visible{outline:2px solid var(--gold,#e5c58b);outline-offset:4px;}.ds-quiet:disabled{opacity:.5;cursor:wait;}"
+    },
+    {
+      "name": "Botón destructivo",
+      "kind": "button",
+      "refersTo": "button-danger",
+      "description": "Variante extraída del botón existente.",
+      "html": "<button class=\"ds-danger\">Borrar colección</button>",
+      "css": ".ds-danger{font-family:'DM Sans',sans-serif;font-size:16px;cursor:pointer;border:1px solid var(--line,#293343);border-radius:7px;background:#1a2535;color:var(--text,#f1f3f8);padding:11px 18px;color:#ffc2bd;border-color:#aa5959;background:#42252c;}.ds-danger:hover{background:#61343c;border-color:#ffaca4;}.ds-danger:focus-visible{outline:2px solid var(--gold,#e5c58b);outline-offset:4px;}.ds-danger:disabled{opacity:.5;cursor:wait;}"
+    },
+    {
+      "name": "Campo de búsqueda",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Campo existente. El foco de inputs depende del navegador; no se añade un estilo inexistente.",
+      "html": "<input class=\"ds-input\" type=\"search\" aria-label=\"Buscar cartas\" placeholder=\"Buscar cartas\">",
+      "css": ".ds-input{font-family:'DM Sans',sans-serif;font-size:16px;padding:12px;color:white;border:1px solid #3e4b60;background:#141e2d;border-radius:6px;max-width:100%;}"
+    },
+    {
+      "name": "Navegación",
+      "kind": "nav",
+      "refersTo": "navigation-item",
+      "description": "Pestañas rectas con selección dorada y subrayado.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"Principal\"><button class=\"ds-active\" aria-current=\"page\">Sobres</button><button>Mi colección</button><button>Mis mazos</button></nav>",
+      "css": ".ds-nav{display:flex;flex-wrap:wrap;gap:6px;justify-content:center}.ds-nav button{font-family:'DM Sans',sans-serif;font-size:16px;cursor:pointer;border:1px solid var(--line,#293343);border-radius:7px;background:#1a2535;color:var(--text,#f1f3f8);padding:11px 18px;border:0;background:transparent;color:var(--muted,#a5b1c3);border-radius:0;padding:10px;font-size:14px}.ds-nav button:hover{background:#253247}.ds-nav button:focus-visible{outline:2px solid var(--gold,#e5c58b);outline-offset:4px;}.ds-nav button.ds-active{color:var(--gold,#e5c58b);box-shadow:0 2px var(--gold,#e5c58b)}"
+    },
+    {
+      "name": "Etiqueta de producto",
+      "kind": "chip",
+      "refersTo": "tag",
+      "description": "Etiqueta tipográfica sin cápsula, extraída de .tag.",
+      "html": "<span class=\"ds-tag\">EXPANSIÓN CLÁSICA</span>",
+      "css": ".ds-tag{font-family:'DM Sans',sans-serif;color:var(--gold,#e5c58b);font-size:11px;letter-spacing:1.5px;}"
+    },
+    {
+      "name": "Contenedor de tienda",
+      "kind": "card",
+      "refersTo": "market-card",
+      "description": "Contenedor y metadatos reales de tienda. La muestra omite la imagen de carta para no depender de un asset externo; no propone reemplazarla.",
+      "html": "<article class=\"ds-market\"><span class=\"ds-card-name\">Nombre de la carta</span><small>Rareza</small><div class=\"ds-meta\"><b>Precio</b><span>Existencias</span></div><button>Comprar</button></article>",
+      "css": ".ds-market{font-family:'DM Sans',sans-serif;min-width:0;padding:12px;border:1px solid var(--line,#293343);border-radius:10px;background:var(--panel,#131d2b);display:flex;flex-direction:column;gap:10px;color:var(--text,#f1f3f8)}.ds-card-name{font-size:14px;line-height:1.3}.ds-market>small{font-size:12px;color:var(--muted,#a5b1c3)}.ds-meta{display:flex;justify-content:space-between;gap:8px;font-size:13px}.ds-meta b{color:var(--gold,#e5c58b)}.ds-market>button{font-family:'DM Sans',sans-serif;font-size:16px;cursor:pointer;border:1px solid var(--line,#293343);border-radius:7px;background:#1a2535;color:var(--text,#f1f3f8);padding:11px 18px;font-size:13px;padding:10px}.ds-market>button:hover{border-color:var(--gold,#e5c58b);background:#253247}.ds-market>button:focus-visible{outline:2px solid var(--gold,#e5c58b);outline-offset:4px;}"
+    }
+  ],
+  "narrative": {
+    "northStar": "La bóveda del coleccionista",
+    "overview": "Dragon Vault presenta las cartas como piezas valiosas de una colección personal. Su carácter es oscuro, sobrio y nostálgico, con momentos de emoción al revelar cartas. El azul noche sostiene la interfaz; el oro antiguo destaca acciones, selección y datos relevantes.\n\nLos controles son sobrios y claros, al servicio de las cartas. Las superficies se distinguen por tonos y bordes discretos. Las imágenes, los brillos de rareza y la apertura de sobres concentran la expresión visual. La densidad aumenta en colección y construcción de mazos para facilitar la consulta.",
+    "keyCharacteristics": [
+      "Fondos azul noche y acentos de oro antiguo.",
+      "Títulos con Marcellus y controles con DM Sans.",
+      "Imágenes de cartas protagonistas, conservando sus proporciones.",
+      "Paneles discretos; luz y movimiento ligados a las cartas.",
+      "Interfaz de colección densa y adaptable a pantallas pequeñas."
+    ],
+    "rules": [
+      {
+        "name": "The Rarity Rule",
+        "body": "Conservar la correspondencia entre rareza, etiqueta, borde y brillo. El oro de acción y el dorado de rareza tienen funciones diferentes aunque pertenezcan a la misma familia.",
+        "section": "colors"
+      },
+      {
+        "name": "The Card Spotlight Rule",
+        "body": "Mantener discretos los paneles de gestión y reservar la mayor intensidad de luz para las cartas y sus revelados.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Reduced Motion Rule",
+        "body": "Conservar la regla existente de movimiento reducido que desactiva animaciones y transiciones. La apertura debe seguir siendo utilizable sin ellas.",
+        "section": "components"
+      }
+    ],
+    "dos": [
+      "**Do** conservar Azul noche, Oro antiguo y Plata azulada en sus roles actuales.",
+      "**Do** mantener Marcellus para títulos y DM Sans para lectura y controles.",
+      "**Do** mostrar las cartas completas y acompañar la rareza con texto.",
+      "**Do** mantener discretos los paneles y concentrar brillos en cartas y revelados.",
+      "**Do** conservar alternativas al arrastre y respeto al movimiento reducido."
+    ],
+    "donts": [
+      "**Don't** sustituir la identidad actual por los estilos predeterminados de Nuxt UI durante la migración.",
+      "**Don't** aplicar el brillo de rareza como decoración general de paneles y formularios.",
+      "**Don't** recortar ilustraciones de cartas para llenar contenedores de otra proporción.",
+      "**Don't** confundir selectores antiguos de la hoja CSS con la apariencia final que resulta de sus sobrescrituras.",
+      "**Don't** presentar esta extracción como una auditoría de accesibilidad o una verificación visual renderizada."
+    ]
+  }
+}
