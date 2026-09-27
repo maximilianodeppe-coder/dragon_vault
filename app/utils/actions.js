@@ -24,16 +24,8 @@ export function random(n) {
   return values[0] % n;
 }
 
-export function openBox(state, set, draw = random) {
-  if (state.coins < 5) throw Error("Necesitás 5 monedas para abrir un sobre.");
-  const box = state.boxes[set];
-  if (!box || !BOX.total(box))
-    throw Error("La caja está agotada. Reiniciala para abrir más sobres.");
-  const ids = BOX.draw(box, draw);
-  for (const id of ids) addCopies(state, id, 1, editionFor(byId.get(id), set));
-  state.coins -= 5;
-  state.packs++;
-  return ids;
+export function openBox() {
+  throw Error('Las cajas preinstaladas fueron retiradas. Publicá una expansión desde el catálogo.');
 }
 
 export function grantStarter(state, id, createDeck, deckId) {

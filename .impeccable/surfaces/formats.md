@@ -26,3 +26,11 @@ Esta superficie no modifica la identidad global de `DESIGN.md` ni repara la deri
 ## Cuentas y permisos vigentes
 
 Productos, existencias, formatos y banlists persisten como estado compartido en PostgreSQL. Solo administradores crean formatos, editan límites, publican productos y reponen cajas. Los jugadores consultan listas, compran y gestionan su colección y sus mazos privados. Los cambios se confirman desde el servidor; una edición administrativa desactualizada se rechaza para evitar sobrescrituras. Las variantes histórica/post-errata conservan cantidades separadas y comparten el máximo general de tres copias.
+
+## Banlists mixtas y continuidad de productos
+
+Mixta conserva el tipo original de cada entrada al cambiar desde Normal o Speed Duel y permite elegirlo por carta. El mapa `cardStyles` guarda `individual` o `shared`; la ausencia equivale a individual. Los límites numéricos son 0–3: Normal 3 elimina la restricción adicional; las compartidas 1/2/3 consumen su respectivo cupo entre Main y Extra sin contar las individuales. Pasar a individual limpia las entradas compartidas de límite 3. Los conflictos se mantienen visibles sin retirar cartas.
+
+`RestrictionBadge.vue` presenta círculos de 28 px con borde de 3 px: rojo (#ef7777) para Normal y celeste (#8dc9ff) para compartidas. El 0 usa un trazo SVG de prohibición; los demás límites muestran el número. El título y `aria-label` expresan tipo y significado, por lo que el color no es la única señal. En `DeckCard.vue` el indicador ocupa `top: 36px; right: 6px`, debajo del contador de copias; las comprobaciones de geometría y capturas de escritorio/móvil en `.impeccable/review/box-mixed/` verifican que no se superponen.
+
+Oficial empieza vacío en mundos nuevos. Las compras incorporadas LOB/MRD/SRL y SDY/SDK se retiraron sin borrar catálogo, recursos, cartas adquiridas, mazos, formatos ni cuentas existentes. Los productos publicados ocupan las superficies de compra. Se preservan azul noche, oro, Marcellus y DM Sans; esta extensión no redefine la identidad global ni repara la deriva preexistente del sidecar.

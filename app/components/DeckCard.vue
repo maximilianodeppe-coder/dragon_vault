@@ -36,6 +36,7 @@ const { data } = useVault();
         loading="lazy"
       />
     </button>
+    <RestrictionBadge v-if="limit < 3 || group !== undefined" class="deck-restriction-badge" :limit="group ?? limit" :shared="group !== undefined" />
     <span class="deck-card-badge"
       >{{ used
       }}{{
@@ -63,3 +64,6 @@ const { data } = useVault();
     </button>
   </article>
 </template>
+<style scoped>
+.deck-restriction-badge { position: absolute; top: 36px; right: 6px; z-index: 1; }
+</style>

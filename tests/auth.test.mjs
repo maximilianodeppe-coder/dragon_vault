@@ -5,7 +5,8 @@ import { randomBytes, randomUUID } from 'node:crypto';
 import { SignJWT } from 'jose';
 import { hashPassword, password, username, signSession, verifySession, WEEK } from '../server/lib/auth.mjs';
 import { applyAction, mergeState, personalState, worldState } from '../server/lib/vault.mjs';
-import { createProgress, clone, validate } from '../app/utils/progress.js';
+import { clone, validate } from '../app/utils/progress.js';
+import { stockedWorld } from './helpers/world.mjs';
 
 test('bcrypt usa sal independiente, costo 12 y rechaza truncamientos de contraseña', async () => {
   const value = 'Prueba-segura-2026';
@@ -33,7 +34,7 @@ test('JWT firmado dura una semana y rechaza manipulación, vencimiento y otra au
   await assert.rejects(verifySession(foreign));
 });
 test('jugadores no pueden importar, editar el mundo ni acreditar monedas; precios se calculan en servidor', () => {
-  const state = createProgress(), player = { role: 'player' };
+  const state = stockedWorld(), player = { role: 'player' };
   for (const type of ['adminCommit', 'import', 'credit']) assert.throws(() => applyAction(state, {type, progress: clone(state), amount: 1000, role: 'admin'}, player), e => e.statusCode === 403);
   assert.throws(() => applyAction(state, {type:'eval', code:'state.coins=9999'}, player));
   const offer = state.economy.offers[0];
@@ -43,7 +44,7 @@ test('jugadores no pueden importar, editar el mundo ni acreditar monedas; precio
   validate(state);
 });
 test('el stock es compartido, los saldos son personales y deshacer usa copias guardadas en servidor', () => {
-  const a = createProgress(), b = createProgress(), user = {role:'player'};
+  const a = stockedWorld(), b = stockedWorld(), user = {role:'player'};
   const offer = a.economy.offers[0]; applyAction(a, {type:'buy', id:offer.id},user);
   const joined = mergeState(personalState(b),worldState(a));
   assert.equal(joined.coins,1000); assert.equal(joined.economy.offers[0].stock,2); assert.deepEqual(joined.owned,{});

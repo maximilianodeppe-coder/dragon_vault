@@ -31,7 +31,9 @@ export function officialDraft(set, members) {
     id, copies: 1, remaining: 1,
     rarity: editions.find((e) => Object.hasOwn(names, e.set_rarity))?.set_rarity || "Common",
   }));
+  for (const entry of entries) entry.remaining = entry.copies = ({ Rare: 5, 'Super Rare': 3 }[entry.rarity] || 1);
   return {
+    boxPacks: Math.max(100, Math.ceil(entries.reduce((n, e) => n + e.copies, 0) / Math.min(5, entries.length))),
     kind: "pack", name: set.set_name, description: "", status: "draft", cost: 5,
     size: Math.min(5, entries.length), coverId: entries[0].id, entries,
     officialSource: { name: set.set_name, code: set.set_code, date: set.tcg_date || "", format: setFormat(set) },

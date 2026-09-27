@@ -1,3 +1,4 @@
+import { stockedWorld } from "../helpers/world.mjs";
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { randomUUID } from 'node:crypto';
@@ -46,7 +47,7 @@ test('RBAC y economía sobre PostgreSQL y HTTP reales', async t => {
     });
     await t.test('importación conserva progreso y ediciones viejas reciben conflicto',async()=>{
       const previous = await call('/api/vault',null,admin.cookie); assert.equal(previous.status,200,JSON.stringify(previous.data));
-      const state=createProgress(); state.coins=2345; state.economy.offers=[{id:state.economy.offers[0].id,stock:1,price:20}];
+      const state=stockedWorld(); state.coins=2345; state.economy.offers=[{id:state.economy.offers[0].id,stock:1,price:20}];
       const imported=await call('/api/vault/action',{type:'import',revision:previous.data.revision,progress:state},admin.cookie);
       assert.equal(imported.status,200,JSON.stringify(imported.data)); assert.equal(imported.data.progress.coins,2345);
       assert.equal((await call('/api/vault/action',{type:'adminCommit',revision:previous.data.revision,progress:state},admin.cookie)).status,409);
@@ -67,8 +68,8 @@ test('RBAC y economía sobre PostgreSQL y HTTP reales', async t => {
       assert.equal((await call('/api/vault/action',{type:'deckUpdate',id,field:'name',value:'Ajeno'},second.cookie)).status,404);
       assert.equal((await call('/api/vault/action',{type:'deckChange',id,cardId:'89631139',delta:100},player.cookie)).status,400);
       const opened=await call('/api/vault/action',{type:'open',id:'LOB'},player.cookie);
-      assert.equal(opened.status,200);assert.equal(opened.data.result.length,5);
-      const after=await call('/api/vault',null,player.cookie); assert.equal(after.data.progress.packs,1);
+      assert.equal(opened.status,400);assert.match(opened.data.message,/retiradas/);
+      const after=await call('/api/vault',null,player.cookie); assert.equal(after.data.progress.packs,0);
       assert.equal((await call('/api/vault',null,second.cookie)).data.progress.packs,0);
     });
     await t.test('administrador crea, cambia rol, bloquea y recarga cuentas',async()=>{

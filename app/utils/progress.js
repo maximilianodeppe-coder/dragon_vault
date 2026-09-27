@@ -32,8 +32,8 @@ export function createProgress() {
     decks: [],
     banlists: [],
     odds: [70, 18, 10, 2],
-    boxes: Object.fromEntries(SETS.map((s) => [s.id, BOX.create(cards, s.id)])),
-    selectedSet: "LOB",
+    boxes: {},
+    selectedSet: "",
     economy: Economy.defaults(cards),
   };
 }
@@ -114,11 +114,12 @@ export function validate(s) {
     if (
       !s.boxes ||
       Array.isArray(s.boxes) ||
-      Object.keys(s.boxes).length !== SETS.length ||
-      !SETS.some((set) => set.id === s.selectedSet)
+      (Object.keys(s.boxes).length !== 0 && Object.keys(s.boxes).length !== SETS.length) ||
+      (s.selectedSet !== '' && !SETS.some((set) => set.id === s.selectedSet))
     )
       throw Error("Las cajas del archivo no son válidas.");
     for (const set of SETS) {
+      if (!Object.keys(s.boxes).length) break;
       if (s.version === 2 || s.version === 3)
         s.boxes[set.id] = BOX.migrate(
           s.boxes[set.id],

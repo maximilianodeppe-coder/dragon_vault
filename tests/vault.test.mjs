@@ -1,3 +1,4 @@
+import { publishStarter } from "./helpers/world.mjs";
 import test from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync, existsSync } from "node:fs";
@@ -51,8 +52,8 @@ test("las reglas migradas coinciden con los motores originales", () => {
       clone(original.BoxEngine.initial(cards, set.id)),
     );
   assert.deepEqual(
-    Economy.defaults(cards),
-    clone(original.Economy.defaults(cards)),
+    Economy.defaults(cards).prices,
+    clone(original.Economy.defaults(cards)).prices,
   );
   const filters = {
     search: "dragon",
@@ -67,20 +68,14 @@ test("las reglas migradas coinciden con los motores originales", () => {
   );
 });
 
-test("las cajas agotan 500 cartas sin reposición y conservan el saldo", () => {
+test("las cajas preinstaladas no se pueden comprar y los datos históricos se conservan", () => {
   const state = createProgress();
-  for (let i = 0; i < 100; i++)
-    assert.equal(openBox(state, "LOB", () => 0).length, 5);
-  assert.equal(BOX.total(state.boxes.LOB), 0);
-  assert.equal(state.coins, 500);
-  assert.equal(
-    Object.values(state.owned).reduce((a, b) => a + b, 0),
-    500,
-  );
-  validate(state);
-  const previous = clone(state);
-  assert.throws(() => openBox(state, "LOB", () => 0));
-  assert.deepEqual(state, previous);
+  state.boxes = Object.fromEntries(SETS.map(s => [s.id, BOX.create(cards, s.id)]));
+  state.selectedSet = 'LOB';
+  const before = clone(state);
+  assert.throws(() => openBox(state, 'LOB'), /retiradas/);
+  assert.deepEqual(state, before);
+  assert.deepEqual(validate(clone(state)), state);
 });
 
 test("las compras sin saldo no entregan cartas ni descuentan existencias", () => {
@@ -95,7 +90,7 @@ test("las compras sin saldo no entregan cartas ni descuentan existencias", () =>
 
 test("comprar un mazo inicial conserva sus 50 cartas y los límites del editor", () => {
   const state = createProgress();
-  grantStarter(state, "SDY", true, "deck");
+  grantStarter(state, publishStarter(state, "SDY"), true, "deck");
   assert.equal(state.coins, 500);
   assert.equal(
     Object.values(state.owned).reduce((a, b) => a + b, 0),
@@ -110,10 +105,7 @@ test("comprar un mazo inicial conserva sus 50 cartas y los límites del editor",
     state,
     id,
     4 - state.owned[id],
-    editionFor(
-      cards.find((c) => String(c.id) === id),
-      "SDY",
-    ),
+    { ...state.inventory[id][0] },
   );
   changeDeck(state, "deck", id, 1);
   changeDeck(state, "deck", id, 1);
@@ -144,7 +136,9 @@ test("los sobres especiales cobran una vez y admiten el último sobre parcial", 
 
 test("importa las versiones 1, 2, 3 y 4 sin perder cartas ni mazos", () => {
   const original = createProgress();
-  grantStarter(original, "SDK", true, "kaiba");
+  grantStarter(original, publishStarter(original, "SDK"), true, "kaiba");
+  original.boxes = Object.fromEntries(SETS.map(s => [s.id, BOX.create(cards, s.id)]));
+  original.selectedSet = "LOB";
   for (const version of [1, 2, 3, 4]) {
     const old = clone(original);
     old.version = version;

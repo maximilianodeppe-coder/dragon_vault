@@ -3,7 +3,7 @@ import { byId, print, isExtraDeck, isDeckCard, familyCopies } from "~/utils/cata
 import { deckCounts } from "~/utils/progress.js";
 import { changeDeck } from "~/utils/actions.js";
 import { deckRules } from '~/utils/deck-rules.js';
-import { groupCounts, groupAllowance } from '~/utils/banlists.js';
+import { groupCounts, groupAllowance, restrictionStyle } from '~/utils/banlists.js';
 import query from "~/utils/collection-query.js";
 import { defaultFilters } from "~/utils/filters.js";
 import { formatOf, formatOwned, formatName } from '~/utils/formats.js';
@@ -43,7 +43,7 @@ async function selectRules(event) { if (!(await vault.request('deckUpdate', { id
 const selectedBanlist = computed(() =>
   activeBanlist(data.progress, deck.value),
 );
-const groupOf = id => selectedBanlist.value?.style === 'shared' ? selectedBanlist.value.limits[id] : undefined;
+const groupOf = id => restrictionStyle(selectedBanlist.value, id) === 'shared' ? selectedBanlist.value.limits[id] : undefined;
 async function selectBanlist(event) { if (!(await vault.request('deckUpdate', { id: deck.value.id, field: 'banlistId', value: event.target.value })).ok) event.target.value = deck.value?.banlistId || ''; }
 const result = computed(() =>
   query(vault.gameCards.value.filter(isDeckCard), owned.value, {

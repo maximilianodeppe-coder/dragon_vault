@@ -1,13 +1,14 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { createProgress, validate, clone } from "../app/utils/progress.js";
+import { validate, clone } from "../app/utils/progress.js";
+import { stockedWorld } from './helpers/world.mjs';
 import { cards } from "../app/utils/catalog.js";
 import { addCopies, lotKey } from "../app/utils/inventory.js";
 import Economy from "../app/utils/economy-engine.js";
 import query from "../app/utils/collection-query.js";
 
 test("precio individual, compra común y bloqueo de toda venta de tienda", () => {
-  const s = createProgress(),
+  const s = stockedWorld(),
     c = cards.find((c) => c.rarity === "Ultra Rare"),
     id = String(c.id);
   s.economy.offers = [{ id, stock: 5, price: 17 }];

@@ -17,7 +17,7 @@ const products = computed(() => data.progress.economy.customPacks.filter((p) => 
       <button v-if="vault.isAdmin.value" @click="vault.newProduct">Crear producto propio</button>
     </div>
     <p>Las cartas obtenidas acá pertenecen a {{ formatName(data.progress, data.activeFormat) }}. No se mezclan con copias de otros formatos.</p>
-    <template v-if="data.activeFormat === 'official' || products.length">
+    <template v-if="products.length">
       <h2>Mazos de inicio</h2>
       <StarterView :key="'starter-' + data.activeFormat" :format-id="data.activeFormat" />
       <h2>Sobres</h2>

@@ -32,11 +32,11 @@ test("mazo fijo: borrador, publicación, compra repetible y rareza real con resp
     p = product();
   saveExpansion(s, p);
   validate(s);
-  assert.equal(starterProducts(s).length, 2);
+  assert.equal(starterProducts(s).length, 0);
   assert.throws(() => grantStarter(s, p.id, true, "deck"));
   p.status = "published";
   validate(s);
-  assert.equal(starterProducts(s).length, 3);
+  assert.equal(starterProducts(s).length, 1);
   assert.equal(
     gameCards(s).some((c) => c.obtainable.some((e) => e.set === p.id)),
     true,

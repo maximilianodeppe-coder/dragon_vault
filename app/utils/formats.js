@@ -2,7 +2,7 @@ import { cards, byId, gameCards, isDeckCard } from './catalog.js';
 
 export const formatOf = (item) => item?.formatId ?? 'official';
 export const formatName = (state, id) => state.formats?.find((f) => f.id === id)?.name || 'Oficial';
-export const defaultFormats = () => [{ id: 'official', name: 'Oficial', limits: Object.fromEntries(cards.filter(isDeckCard).map((c) => [String(c.id), 3])) }];
+export const defaultFormats = () => [{ id: 'official', name: 'Oficial', limits: {} }];
 export const formatLimit = (state, formatId, id) => state.formats?.find((f) => f.id === formatId)?.limits[id] ?? 0;
 export function ownedInFormat(state, id, formatId) {
   return (state.inventory?.[id] || []).filter((l) => formatOf(l) === formatId).reduce((n, l) => n + l.quantity, 0);
@@ -20,6 +20,7 @@ export function allowCards(state, formatId, ids) {
 export function validateFormats(state, legacy = false) {
   if (legacy) {
     state.formats = defaultFormats();
+    allowCards(state, 'official', cards.map(c => String(c.id)));
     allowCards(state, 'official', gameCards(state).map((c) => String(c.id)));
   }
   if (!Array.isArray(state.formats) || !state.formats.length || state.formats.length > 100)

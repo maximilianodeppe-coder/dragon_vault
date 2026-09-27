@@ -1,6 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { createProgress, validate, clone } from '../app/utils/progress.js';
+import { validate, clone } from '../app/utils/progress.js';
+import { stockedWorld } from './helpers/world.mjs';
 import { cards, isDeckCard, isExtraDeck, starterProducts } from '../app/utils/catalog.js';
 import { addCopies } from '../app/utils/inventory.js';
 import { grantStarter, changeDeck } from '../app/utils/actions.js';
@@ -11,13 +12,13 @@ import { groupCounts, groupAllowance } from '../app/utils/banlists.js';
 const main = cards.filter(c => isDeckCard(c) && !isExtraDeck(c)).slice(0, 22).map(c => String(c.id));
 const extra = cards.filter(isExtraDeck).slice(0, 3).map(c => String(c.id));
 function setup() {
-  const s = createProgress();
+  const s = stockedWorld();
   for (const id of [...main, ...extra]) addCopies(s, id, 3, { source: 'test', sourceName: 'Prueba', rarity: 'Common' });
   s.decks.push({ id: 'speed', name: 'Speed', ruleset: 'speed', cards: {} });
   return s;
 }
 test('productos fijos sin límite de mazo: entrega completa sin crear mazos grandes', () => {
-  const s = createProgress();
+  const s = stockedWorld();
   const pack = { id: 'custom-lot', name: 'Lote', kind: 'starter', status: 'published', cost: 10, size: 1,
     entries: main.map(id => ({ id, copies: 3, remaining: 3, rarity: 'Rare' })) };
   saveExpansion(s, pack); validate(s);
@@ -43,7 +44,7 @@ test('Speed Duel aplica 30 Main y 6 Extra y conserva reglas en respaldos', () =>
   assert.deepEqual(validate(clone(s)), s);
   const bad = clone(s); bad.decks[0].cards[main[10]] = 1;
   assert.throws(() => validate(bad), /tamaño máximo/);
-  const legacy = createProgress(); legacy.version = 6;
+  const legacy = stockedWorld(); legacy.version = 6;
   assert.equal(validate(legacy).version, 7);
 });
 test('cupos compartidos suman copias distintas y Main/Extra; quitar libera cupo', () => {

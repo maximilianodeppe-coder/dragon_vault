@@ -113,7 +113,6 @@ export function registerCatalog(snapshot) {
 
 export const isPublished = (pack) => pack.status !== "draft";
 export const starterProducts = (state) => [
-  ...starters.map((s) => ({ ...s, cost: 500 })),
   ...state.economy.customPacks
     .filter((p) => p.kind === "starter" && isPublished(p))
     .map((p) => ({
@@ -132,7 +131,7 @@ export const isDeckCard = (card) =>
 
 // Only deliberately enabled cards (or already owned cards) join the game.
 export function gameCards(state) {
-  const active = new Set(cards.map((c) => String(c.id)));
+  const active = new Set();
   const prints = new Map();
   for (const pack of state.economy.customPacks.filter(isPublished)) {
     for (const entry of pack.entries) {
@@ -155,7 +154,6 @@ export function gameCards(state) {
     .map((c) => ({
       ...c,
       obtainable: [
-        ...(c.obtainable || []),
         ...(prints.get(String(c.id)) || []),
       ],
     }));

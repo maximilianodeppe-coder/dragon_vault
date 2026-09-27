@@ -9,16 +9,19 @@ export const limitNames = [
 ];
 export const activeBanlist = (state, deck) =>
   state.banlists?.find((list) => list.id === deck?.banlistId);
+export const restrictionStyle = (list, id) => list?.style === 'mixed'
+  ? (list.cardStyles?.[id] || 'individual') : (list?.style || 'individual');
 export const cardLimit = (state, deck, id) =>
   Math.min(formatLimit(state, formatOf(deck), id), activeBanlist(state, deck)?.limits[id] ?? 3);
 export function groupCounts(state, deck) {
   const list = activeBanlist(state, deck);
-  if (list?.style !== 'shared') return [];
+  if (!['shared', 'mixed'].includes(list?.style)) return [];
   return [1, 2, 3].map(limit => ({ limit, copies: Object.entries(deck?.cards || {})
-    .reduce((sum, [id, n]) => sum + (list.limits[id] === limit ? n : 0), 0) }));
+    .reduce((sum, [id, n]) => sum + (restrictionStyle(list, id) === 'shared' && list.limits[id] === limit ? n : 0), 0) }));
 }
 export function groupAllowance(state, deck, id) {
   const list = activeBanlist(state, deck);
+  if (restrictionStyle(list, id) !== 'shared') return 3;
   const group = groupCounts(state, deck).find(g => g.limit === list?.limits[id]);
   return group ? Math.max(0, group.limit - group.copies) : 3;
 }
@@ -49,8 +52,15 @@ export function validateBanlists(state) {
     )
       throw Error("La banlist necesita un nombre y límites válidos.");
     ids.add(list.id);
-    if (list.style !== undefined && !['individual', 'shared'].includes(list.style))
+    if (list.style !== undefined && !['individual', 'shared', 'mixed'].includes(list.style))
       throw Error('Estilo de banlist no válido.');
+    if (list.cardStyles !== undefined) {
+      if (!list.cardStyles || typeof list.cardStyles !== 'object' || Array.isArray(list.cardStyles))
+        throw Error('Tipos de restricción no válidos.');
+      for (const [id, style] of Object.entries(list.cardStyles))
+        if (list.style !== 'mixed' || !isDeckCard(byId.get(id)) || !['individual', 'shared'].includes(style))
+          throw Error('Tipo de restricción por carta no válido.');
+    }
     for (const [id, limit] of Object.entries(list.limits))
       if (
         !byId.has(id) ||

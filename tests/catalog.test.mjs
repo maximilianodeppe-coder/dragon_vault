@@ -43,7 +43,7 @@ test("el catálogo íntegro preserva el original y no activa cartas automáticam
     assert.equal(byId.get(String(c.id)).name_es, c.name_es);
     assert.equal(byId.get(String(c.id)).image, c.image);
   }
-  assert.equal(gameCards(createProgress()).length, 422);
+  assert.equal(gameCards(createProgress()).length, 0);
   assert.equal(modern.language, "en");
   assert.ok(modern.officialSets.length);
   assert.ok(isExtraDeck(modern));
@@ -53,11 +53,11 @@ test("borrador, publicación, extracción sin garantías y retiro conservan las 
   const state = createProgress();
   saveExpansion(state, expansion());
   validate(state);
-  assert.equal(gameCards(state).length, 422);
+  assert.equal(gameCards(state).length, 0);
   assert.throws(() => Economy.draw(state, allCards, "custom-test", () => 0));
   assert.equal(state.coins, 1000);
   saveExpansion(state, expansion("published"));
-  assert.equal(gameCards(state).length, 423);
+  assert.equal(gameCards(state).length, 1);
   assert.equal(state.owned[id], undefined);
   assert.deepEqual(
     Economy.draw(state, allCards, "custom-test", () => 0),
@@ -68,9 +68,9 @@ test("borrador, publicación, extracción sin garantías y retiro conservan las 
   assert.deepEqual(validate(clone(state)), state);
   saveExpansion(state, expansion());
   assert.equal(state.economy.customPacks[0].entries[0].remaining, 1);
-  assert.equal(gameCards(state).length, 423);
+  assert.equal(gameCards(state).length, 1);
   state.economy.customPacks = [];
-  assert.equal(gameCards(state).length, 423);
+  assert.equal(gameCards(state).length, 1);
   state.decks.push({ id: "deck", name: "Sincronía", cards: {} });
   changeDeck(state, "deck", id, 1);
   assert.deepEqual(deckCounts(state.decks[0]), { main: 0, extra: 1 });

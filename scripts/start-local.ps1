@@ -16,8 +16,8 @@ if ($Serve) {
     $env:PORT = '3000'
     $env:NODE_ENV = 'production'
     New-Item -ItemType Directory -Path "$project\.data" -Force | Out-Null
-    & $node --env-file-if-exists=.env "$project\.output\server\index.mjs" *> "$project\.data\server.log"
-    exit $LASTEXITCODE
+    $server = Start-Process -FilePath $node -ArgumentList '--env-file-if-exists=.env .output/server/index.mjs' -WorkingDirectory $project -WindowStyle Hidden -RedirectStandardOutput "$project\.data\server.log" -RedirectStandardError "$project\.data\server-error.log" -Wait -PassThru
+    exit $server.ExitCode
 }
 
 # El Programador de tareas mantiene el servidor fuera del proceso del chat.

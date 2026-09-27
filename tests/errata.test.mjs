@@ -2,7 +2,8 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { byId, allCards, registerCatalog, registerSpanish, familyCopies } from '../app/utils/catalog.js';
-import { createProgress, validate, clone } from '../app/utils/progress.js';
+import { validate, clone } from '../app/utils/progress.js';
+import { stockedWorld } from './helpers/world.mjs';
 import { saveExpansion } from '../app/utils/expansions.js';
 import { addCopies } from '../app/utils/inventory.js';
 import { changeDeck, Economy } from '../app/utils/actions.js';
@@ -19,7 +20,7 @@ test('variantes estables, textos separados, inventario y máximo compartido', ()
   assert.notEqual(byId.get(old).historical.original_en, byId.get(modern).desc_en);
   assert.equal(byId.get(old).image, byId.get(modern).image);
   assert.equal(allCards.filter(c => c.postErrata).length, 4);
-  const s = createProgress();
+  const s = stockedWorld();
   addCopies(s, old, 3, { source: 'MRD', sourceName: 'Metal Raiders', rarity: 'Rare' });
   saveExpansion(s, { id: 'custom-errata', name: 'Actualizadas', status: 'published', cost: 1, size: 1,
     entries: [{ id: modern, copies: 3, remaining: 3, rarity: 'Common' }] });

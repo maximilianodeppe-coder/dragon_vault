@@ -13,12 +13,7 @@ function defaults(cards) {
         { sell: [1, 3, 7, 15, 20][i], buy: [5, 12, 28, 60, 80][i] },
       ]),
     ),
-    offers: rarities.flatMap((r) =>
-      cards
-        .filter((c) => c.rarity === r)
-        .slice(0, 2)
-        .map((c) => ({ id: String(c.id), stock: 3 })),
-    ),
+    offers: [],
     customPacks: [],
   };
 }
@@ -121,6 +116,10 @@ function validate(e, cards) {
     }
     if (total < p.size || total > 100000)
       throw Error("Cantidad de cartas del sobre no válida");
+    if (p.boxPacks !== undefined &&
+        (p.kind === 'starter' || !integer(p.boxPacks, 1, 100000) || p.boxPacks * p.size > 100000 ||
+         (p.status !== 'draft' && total !== p.boxPacks * p.size)))
+      throw Error('La caja debe contener exactamente sobres por caja × cartas por sobre. Completá las copias antes de publicar.');
   }
   return e;
 }

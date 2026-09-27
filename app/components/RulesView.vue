@@ -1,7 +1,7 @@
 <script setup>
 import { allCards, byId, image, isDeckCard, cards, SETS, starters } from '~/utils/catalog.js';
 import query from '~/utils/collection-query.js';
-import { deleteBanlist } from '~/utils/banlists.js';
+import { deleteBanlist, restrictionStyle } from '~/utils/banlists.js';
 import { allowCards } from '~/utils/formats.js';
 import { indexSetCards } from '~/utils/official-sets.js';
 const vault = useVault(), { data } = vault, route = useRoute();
@@ -10,7 +10,7 @@ const showCreate = ref(route.query.crear === 'formato');
 const newStyle = ref('individual');
 const lists = computed(() => mode.value === 'format' ? data.progress.formats : data.progress.banlists);
 const list = computed(() => lists.value.find((l) => l.id === selected.value) || lists.value[0]);
-const fallback = computed(() => mode.value === 'format' ? 0 : list.value?.style === 'shared' ? null : 3);
+const fallback = computed(() => mode.value === 'format' ? 0 : ['shared', 'mixed'].includes(list.value?.style) ? null : 3);
 const results = computed(() => search.value.trim() ? query(allCards.filter(isDeckCard), {}, { search: search.value }).cards : []);
 const rules = computed(() => Object.entries(list.value?.limits || {}).map(([id, limit]) => ({ card: byId.get(id), limit })).sort((a, b) => a.card.name_es.localeCompare(b.card.name_es, 'es')));
 const setSearch = ref(''), setId = ref('');
@@ -40,17 +40,30 @@ async function rename(event) {
 async function setLimit(id, limit) {
   (await vault.commit((s) => {
     const target = (mode.value === 'format' ? s.formats : s.banlists).find((l) => l.id === list.value.id);
-    if (mode.value === 'banlist' && (limit === null || (limit === 3 && target.style !== 'shared'))) delete target.limits[id];
+    if (mode.value === 'banlist' && (limit === null || (limit === 3 && restrictionStyle(target, id) !== 'shared'))) delete target.limits[id];
     else target.limits[id] = limit;
   }));
 }
 async function setStyle(event) {
   if (!(await vault.commit(s => {
     const target = s.banlists.find(l => l.id === list.value.id);
-    target.style = event.target.value;
-    // In an individual list, an explicit 3 means unrestricted, not a shared group.
-    for (const [id, n] of Object.entries(target.limits)) if (n === 3) delete target.limits[id];
+    const next = event.target.value;
+    if (next === 'mixed') target.cardStyles = Object.fromEntries(Object.keys(target.limits).map(id => [id, restrictionStyle(target, id)]));
+    else {
+      for (const [id, n] of Object.entries(target.limits)) if (n === 3 && (next === 'individual' || restrictionStyle(target, id) !== 'shared')) delete target.limits[id];
+      delete target.cardStyles;
+    }
+    target.style = next;
   })).ok) event.target.value = list.value.style || 'individual';
+}
+async function setCardStyle(id, event) {
+  const value = event.target.value;
+  if (!(await vault.commit(s => {
+    const target = s.banlists.find(l => l.id === list.value.id);
+    target.cardStyles ||= {};
+    target.cardStyles[id] = value;
+    if (value === 'individual' && target.limits[id] === 3) delete target.limits[id];
+  })).ok) event.target.value = restrictionStyle(list.value, id);
 }
 async function addSet() {
   const source = sources.value.find((s) => s.id === setId.value);
@@ -85,7 +98,7 @@ function useFormat() {
     </div>
     <form v-if="showCreate" class="deck-command" @submit.prevent="create">
       <label>Nombre de la nueva lista<input v-model="newName" maxlength="60" placeholder="Ej.: Speed Duel entre amigos" required /></label>
-      <label v-if="mode === 'banlist'">Estilo de la nueva banlist<select v-model="newStyle"><option value="individual">Límites por carta</option><option value="shared">Speed Duel · cupos compartidos</option></select></label>
+      <label v-if="mode === 'banlist'">Estilo de la nueva banlist<select v-model="newStyle"><option value="individual">Límites por carta</option><option value="shared">Speed Duel · cupos compartidos</option><option value="mixed">Mixta · elegir por carta</option></select></label>
       <button class="primary">{{ mode === 'format' ? 'Guardar nuevo formato' : 'Guardar nueva banlist' }}</button>
       <button type="button" @click="showCreate = false">Cancelar</button>
     </form>
@@ -96,9 +109,10 @@ function useFormat() {
         <button v-if="mode === 'banlist'" class="quiet" @click="remove">Eliminar banlist</button>
         <NuxtLink v-else :to="'/formatos?formato=' + list.id">Ver productos del formato</NuxtLink>
       </div>
-      <label v-if="mode === 'banlist'">Estilo de banlist<select :value="list.style || 'individual'" @change="setStyle"><option value="individual">Límites por carta</option><option value="shared">Speed Duel · cupos compartidos</option></select></label>
+      <label v-if="mode === 'banlist'">Estilo de banlist<select :value="list.style || 'individual'" @change="setStyle"><option value="individual">Límites por carta</option><option value="shared">Speed Duel · cupos compartidos</option><option value="mixed">Mixta · elegir por carta</option></select></label>
       <p class="banlist-help" v-if="mode === 'format'">Lista de permitidas (whitelist): solo se pueden jugar las cartas incluidas, con sus límites. 0 las excluye; 1, 2 o 3 indican copias máximas. Guardado automático, sin quitar cartas de tus mazos.</p>
       <p class="banlist-help" v-else-if="list.style === 'shared'">0 prohíbe. Limitada 1, 2 y 3 son grupos: todas las copias de cartas de cada grupo comparten un máximo de 1, 2 o 3 entre Main y Extra. «Libre» quita la restricción de esta banlist, sin habilitar cartas excluidas por el formato. Cambiar a límites por carta elimina el grupo 3. Guardado automático.</p>
+      <p class="banlist-help" v-else-if="list.style === 'mixed'">Elegí por carta: Normal aplica un máximo individual (rojo); Speed Duel comparte el cupo 1, 2 o 3 con las otras cartas de ese grupo (celeste). 0 prohíbe y Libre quita la restricción. Guardado automático.</p>
       <p class="banlist-help" v-else>La banlist agrega restricciones: 0 prohíbe, 1 limita y 2 semilimita. 3 quita esta restricción, pero nunca habilita una carta excluida por el formato. Guardado automático.</p>
       <details v-if="mode === 'format'" class="format-import">
         <summary>Agregar una expansión completa a la lista</summary>
@@ -117,9 +131,12 @@ function useFormat() {
         <div v-for="entry in (search.trim() ? results.slice((page - 1) * 30, page * 30).map(card => ({ card, limit: list.limits[card.id] ?? fallback })) : rules.slice((rulePage - 1) * 30, rulePage * 30))" :key="entry.card.id" class="banlist-row">
           <button class="banlist-image" :aria-label="'Ver ' + entry.card.name_es" @click="data.dialog = { kind: 'detail', id: String(entry.card.id) }"><CardImage :src="image(entry.card)" :alt="entry.card.name_es" loading="lazy" /></button>
           <span class="banlist-name">{{ entry.card.name_es }}</span>
+          <label v-if="mode === 'banlist' && list.style === 'mixed'" class="restriction-kind">Tipo de límite
+            <select :value="restrictionStyle(list, entry.card.id)" :aria-label="'Tipo de límite de ' + entry.card.name_es" @change="setCardStyle(String(entry.card.id), $event)"><option value="individual">Normal · por carta</option><option value="shared">Speed Duel · compartido</option></select>
+          </label>
           <div class="limit-buttons" role="group" :aria-label="'Límite de ' + entry.card.name_es">
-            <button v-for="n in [0, 1, 2, 3]" :key="n" :aria-label="n === 0 ? 'No permitida' : (mode === 'banlist' && list.style === 'shared') ? 'Limitada ' + n : n + (n === 1 ? ' copia' : ' copias')" :aria-pressed="entry.limit === n" @click="setLimit(String(entry.card.id), n)">{{ n }}</button>
-            <button v-if="mode === 'banlist' && list.style === 'shared'" :aria-pressed="entry.limit === null" @click="setLimit(String(entry.card.id), null)">Libre</button>
+            <button v-for="n in [0, 1, 2, 3]" :key="n" :aria-label="n === 0 ? 'No permitida' : (mode === 'banlist' && restrictionStyle(list, entry.card.id) === 'shared') ? 'Limitada ' + n : n + (n === 1 ? ' copia' : ' copias')" :aria-pressed="entry.limit === n" @click="setLimit(String(entry.card.id), n)"><RestrictionBadge v-if="mode === 'banlist'" :limit="n" :shared="restrictionStyle(list, entry.card.id) === 'shared'" /><span v-else>{{ n }}</span></button>
+            <button v-if="mode === 'banlist' && ['shared', 'mixed'].includes(list.style)" :aria-pressed="entry.limit === null" @click="setLimit(String(entry.card.id), null)">Libre</button>
           </div>
         </div>
       </div>
@@ -135,8 +152,8 @@ function useFormat() {
   <section v-else aria-label="Listas y formatos">
     <p>Las reglas las administra el creador de la bóveda. Podés elegir una banlist al editar cada mazo.</p>
     <details v-for="list in [...data.progress.formats, ...data.progress.banlists]" :key="list.id" class="market-prices">
-      <summary>{{ list.name }}</summary><p>{{ list.style === 'shared' ? 'Las categorías 1, 2 y 3 comparten su cupo.' : 'Límites por carta.' }}</p>
-      <ul><li v-for="(limit, id) in list.limits" :key="id">{{ byId.get(id)?.name_es }} · {{ limit }} copias</li></ul>
+      <summary>{{ list.name }}</summary><p>{{ list.style === 'mixed' ? 'Combina límites normales y cupos Speed Duel.' : list.style === 'shared' ? 'Las categorías 1, 2 y 3 comparten su cupo.' : 'Límites por carta.' }}</p>
+      <ul><li v-for="(limit, id) in list.limits" :key="id">{{ byId.get(id)?.name_es }} · <RestrictionBadge :limit="limit" :shared="restrictionStyle(list, id) === 'shared'" /> {{ restrictionStyle(list, id) === 'shared' ? 'cupo compartido' : 'copias por carta' }}</li></ul>
     </details>
   </section>
 </template>
@@ -149,5 +166,7 @@ function useFormat() {
 .limit-buttons button { min-width: 44px; min-height: 44px; padding: 8px; font-variant-numeric: tabular-nums; }
 .limit-buttons button[aria-pressed="true"] { background: var(--gold); color: #17202e; border-color: var(--gold); }
 .banlist-row { grid-template-columns: 40px minmax(0, 1fr) auto; }
+.restriction-kind { grid-column: 2; }
+.restriction-kind select { width: 100%; }
 @media (max-width: 560px) { .limit-buttons { grid-column: 2; } .banlist-row { grid-template-columns: 40px minmax(0, 1fr); } }
 </style>

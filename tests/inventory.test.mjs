@@ -1,3 +1,4 @@
+import { publishStarter } from "./helpers/world.mjs";
 import test from "node:test";
 import assert from "node:assert/strict";
 import { createProgress, validate, clone } from "../app/utils/progress.js";
@@ -93,12 +94,14 @@ test("sobres propios, clásicos, tienda e iniciales registran el origen de cada 
     ["Rare", "Common"],
   );
   s.economy.customPacks = [];
-  grantStarter(s, "SDY", false);
-  openBox(s, "LOB", () => 0);
+  const starterId = publishStarter(s, "SDY");
+  grantStarter(s, starterId, false);
+  assert.throws(() => openBox(s, "LOB"), /retiradas/);
+  s.economy.offers = [{ id, stock: 3 }];
   const offer = s.economy.offers[0];
   Economy.buy(s, allCards, offer.id);
   assert.ok(lotsFor(s, offer.id).some((l) => l.source === "shop"));
-  assert.ok(lotsFor(s, id).some((l) => l.source === "SDY"));
+  assert.ok(lotsFor(s, id).some((l) => l.source === starterId));
   validate(s);
 });
 test("migra sin inventar rarezas y permite identificar sin alterar cantidades ni saldo", () => {

@@ -36,16 +36,25 @@ No se importa automáticamente el contenido de las pestañas del navegador.
 El JSON de una cuenta no sustituye el backup completo de PostgreSQL.
 
 CATÁLOGO Y PRODUCTOS
-Se conservan las 422 cartas clásicas y los mazos Yugi y Kaiba. El catálogo completo
+Se conservan las 422 cartas clásicas y los datos históricos de Yugi y Kaiba. El catálogo completo
 de YGOPRODeck y las traducciones comunitarias se revisan diariamente mientras
 el servidor esté encendido. Las traducciones ausentes se indican como pendientes.
 Expansiones reúne el archivo oficial y el editor administrativo. Los productos
 pueden ser sobres o lotes fijos, con borrador/publicación y formato propio.
 Publicar habilita cartas según las reglas del formato, pero no entrega copias.
-Las cajas clásicas tienen 500 cartas; cada sobre cuesta 5 monedas y entrega hasta
-5 cartas. El sorteo usa copias restantes sin reposición ni rareza garantizada.
+LOB/MRD/SRL y SDY/SDK ya no se ofrecen para comprar. Las cartas y mazos
+adquiridos permanecen. Los sobres publicados sortean copias sin reposición
+ni rareza garantizada.
 Los productos personalizados tienen precio y contenido configurables.
-El administrador repone cajas. Cambiar presentación o precio no repone stock.
+El administrador repone cajas publicadas. Cambiar presentación o precio no repone stock.
+Los mundos nuevos empiezan sin productos ni ofertas y con Oficial vacío.
+Sobres por caja empieza en 100; las importaciones oficiales pueden necesitar más.
+Las copias iniciales son Común 1, Rara 5, Súper Rara 3, Ultra Rara 1 y Secreta 1.
+Cambiar a una rareza no común restablece esa cantidad, que luego podés editar.
+Autocompletar comunes solo agrega comunes hasta sobres por caja × cartas por sobre;
+no reduce cantidades ni toca las especiales. Hay topes de 1.000 por carta y 100.000
+por caja. Publicar exige el total exacto; podés guardar borradores incompletos.
+Las cajas anteriores sin cantidad de sobres definida conservan esa compatibilidad.
 
 COLECCIÓN, TIENDA Y MAZOS
 La colección reúne copias por carta y variante. La grilla no muestra rarezas;
@@ -55,7 +64,11 @@ Las ventas de otras copias usan su rareza real y protegen las necesarias para ma
 La venta rápida conserva al menos tres copias vendibles por carta y formato.
 Cada formato tiene una lista de permitidas: ausencia o 0 excluye la carta.
 Las banlists adicionales solo restringen más; pueden usar límites individuales
-o cupos compartidos 1/2/3. El administrador edita reglas; el jugador las consulta.
+o cupos compartidos 1/2/3, también combinados por carta en estilo Mixta.
+Solo las cartas compartidas consumen esos cupos entre Main y Extra.
+Normal 3 quita la restricción; compartida 3 sí limita. Los círculos rojos y
+celestes incluyen número o prohibición y texto accesible.
+El administrador edita reglas; el jugador las consulta.
 Estándar: 40–60 principales y hasta 15 de Extra. Speed Duel: 20–30 y hasta 6 de Extra.
 Los mazos incompletos quedan como borradores. Las cartas deben haberse obtenido
 en su formato. Se conservan los botones alternativos al arrastre.

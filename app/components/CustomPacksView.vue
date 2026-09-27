@@ -11,6 +11,7 @@ import {
   totalCards,
   raritySummary,
   saveExpansion,
+  fillCommons,
 } from "~/utils/expansions.js";
 import { formatOf, formatName } from '~/utils/formats.js';
 const vault = useVault(),
@@ -38,6 +39,19 @@ const cover = computed(
 );
 const summary = computed(() => raritySummary(draft.value));
 const isStarter = computed(() => data.draftKind === "starter");
+const targetCards = computed(() => Number(data.draftBoxPacks) * Number(data.draftSize));
+function autofill() {
+  try {
+    const filled = fillCommons(entries.value, Number(data.draftSize), Number(data.draftBoxPacks));
+    data.draft = Object.fromEntries(filled.map(e => [e.id, e.copies]));
+    error.value = '';
+    vault.notify('Caja completada con comunes. Las otras rarezas se conservaron.');
+  } catch (e) { error.value = e.message; }
+}
+function changeRarity(id, rarity) {
+  data.draftRarities[id] = rarity;
+  if (!isStarter.value) data.draft[id] = ({ Rare: 5, 'Super Rare': 3, 'Ultra Rare': 1, 'Secret Rare': 1 }[rarity] || data.draft[id]);
+}
 const extraCount = computed(() =>
   entries.value
     .filter((e) => isExtraDeck(byId.get(e.id)))
@@ -73,6 +87,7 @@ async function save(status) {
     status,
     cost: Number(data.draftCost),
     size: isStarter.value ? 1 : Number(data.draftSize),
+    ...(!isStarter.value && data.draftBoxPacks !== '' ? { boxPacks: Number(data.draftBoxPacks) } : {}),
     entries: entries.value.map((e) => ({ ...e })),
     ...(data.draftSource ? { officialSource: { ...data.draftSource } } : {}),
   };
@@ -238,6 +253,12 @@ function action(pack, reset) {
               <option v-for="n in 5" :key="n" :value="n">{{ n }}</option>
             </select></label
           >
+          <label v-if="!isStarter">Sobres por caja<input v-model.number="data.draftBoxPacks" type="number" min="1" :max="Math.floor(100000 / data.draftSize)" step="1" :required="!existing" placeholder="Cantidad de sobres" /><small v-if="existing && !existing.boxPacks">Opcional para cajas anteriores; al definirlo, la publicación exigirá el total exacto.</small></label>
+        </div>
+        <div v-if="!isStarter" class="box-fill-controls">
+          <p v-if="data.draftBoxPacks" role="status">{{ total }} / {{ targetCards }} copias · {{ total < targetCards ? 'Faltan ' + (targetCards - total) : total > targetCards ? 'Sobran ' + (total - targetCards) : 'Caja completa' }}</p>
+          <button type="button" :disabled="!entries.length || !data.draftBoxPacks" @click="autofill">Completar caja con comunes</button>
+          <p class="expansion-help">Distribución inicial por carta: 5 raras, 3 súper raras, 1 ultra rara y 1 secreta. Podés ajustar esas cantidades; el autorrelleno solo agrega comunes, sin reducir copias. Máximo 1.000 por carta.</p>
         </div>
         <div class="expansion-content-heading">
           <h3>
@@ -252,7 +273,7 @@ function action(pack, reset) {
           las copias restantes tienen la misma probabilidad de salir.
         </p>
         <p v-if="data.draftSource" class="expansion-help">
-          Importación inicial: una copia por carta distinta, sin reproducir las cantidades de un producto físico.
+          Importación inicial: 1 común, 5 raras, 3 súper raras, 1 ultra rara y 1 secreta por carta, sin reproducir las cantidades de un producto físico.
           Si hay varias rarezas, se elige la primera compatible; las no admitidas empiezan como Común.
           Revisá la distribución antes de publicar. Podés consultar las ediciones originales en la ficha de cada carta.
         </p>
@@ -280,7 +301,8 @@ function action(pack, reset) {
             </div>
             <label
               >Rareza<select
-                v-model="data.draftRarities[entry.id]"
+                :value="data.draftRarities[entry.id]"
+                @change="changeRarity(entry.id, $event.target.value)"
                 :aria-label="'Rareza de ' + byId.get(entry.id).name_es"
               >
                 <option v-for="(label, r) in names" :key="r" :value="r">
@@ -399,7 +421,7 @@ function action(pack, reset) {
           </div>
           <div v-if="!isStarter">
             <dt>Sobres por caja</dt>
-            <dd>{{ Math.ceil(total / (Number(data.draftSize) || 1)) || 0 }}</dd>
+            <dd>{{ data.draftBoxPacks || Math.ceil(total / (Number(data.draftSize) || 1)) || 0 }}</dd>
           </div>
           <div>
             <dt>{{ isStarter ? "Precio por mazo" : "Precio por sobre" }}</dt>

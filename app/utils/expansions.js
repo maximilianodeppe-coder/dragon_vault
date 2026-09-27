@@ -4,10 +4,11 @@ import { formatOf, allowCards } from './formats.js';
 export function hasDraftChanges(data, saved) {
   if (!saved) return Boolean(Object.keys(data.draft).length || data.draftName.trim() ||
     data.draftDescription.trim() || data.draftCover || data.draftSource ||
-    data.draftKind !== "pack" || (data.draftFormat && data.draftFormat !== 'official') || Number(data.draftCost) !== 5 || Number(data.draftSize) !== 5);
+    data.draftKind !== "pack" || (data.draftFormat && data.draftFormat !== 'official') || Number(data.draftCost) !== 5 || Number(data.draftSize) !== 5 || Number(data.draftBoxPacks || 0) !== 100);
   return (data.draftFormat || 'official') !== formatOf(saved) || data.draftName.trim() !== saved.name || data.draftDescription.trim() !== (saved.description || "") ||
     data.draftKind !== (saved.kind || "pack") || Number(data.draftCost) !== saved.cost ||
     (data.draftKind !== "starter" && Number(data.draftSize) !== saved.size) ||
+    (data.draftKind !== "starter" && Number(data.draftBoxPacks || 0) !== (saved.boxPacks || 0)) ||
     (data.draftCover || Object.keys(data.draft)[0]) !== (saved.coverId || saved.entries[0]?.id) ||
     Object.keys(data.draft).length !== saved.entries.length ||
     saved.entries.some((entry) => Number(data.draft[entry.id]) !== entry.copies ||
@@ -18,6 +19,26 @@ export const remainingCards = (pack) =>
   pack.entries.reduce((sum, entry) => sum + entry.remaining, 0);
 export const totalCards = (pack) =>
   pack.entries.reduce((sum, entry) => sum + entry.copies, 0);
+export function fillCommons(entries, size, packs) {
+  const target = size * packs;
+  if (!Number.isInteger(size) || size < 1 || size > 5 || !Number.isInteger(packs) || packs < 1 || target > 100000)
+    throw Error('Elegí un tamaño y una cantidad de sobres válidos (hasta 100.000 cartas).');
+  if (entries.some(e => !Number.isInteger(e.copies) || e.copies < 1 || e.copies > 1000))
+    throw Error('Revisá las copias: cada carta admite de 1 a 1.000.');
+  const result = entries.map(e => ({ ...e }));
+  let missing = target - totalCards({ entries });
+  if (missing < 0) throw Error('Las copias actuales superan la capacidad. Aumentá los sobres o reducí copias manualmente.');
+  const commons = result.filter(e => (e.rarity || byId.get(e.id)?.rarity) === 'Common');
+  if (missing > commons.reduce((n, e) => n + 1000 - e.copies, 0))
+    throw Error('Agregá más cartas comunes: no alcanzan para completar la caja con hasta 1.000 copias por carta.');
+  while (missing) {
+    for (const entry of commons) {
+      if (entry.copies < 1000) { entry.copies++; missing--; }
+      if (!missing) break;
+    }
+  }
+  return result;
+}
 export function packCard(pack, id) {
   const card = byId.get(String(id));
   const entry = pack.entries.find((e) => e.id === String(id));

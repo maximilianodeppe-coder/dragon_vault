@@ -58,6 +58,7 @@ export default defineNuxtPlugin(async (nuxtApp) => {
     draftName: "",
     draftCost: 5,
     draftSize: 5,
+    draftBoxPacks: 100,
     draftSource: null,
     draftFormat: 'official',
     activeFormat: 'official',
@@ -241,7 +242,9 @@ export default defineNuxtPlugin(async (nuxtApp) => {
   function addDraft(id) {
     if (!isAdmin.value) return;
     if (!byId.has(String(id))) return;
-    data.draft[id] = Math.min(1000, (data.draft[id] || 0) + 1);
+    const rarity = byId.get(String(id)).rarity;
+    const initial = data.draftKind === 'starter' ? 1 : ({ Rare: 5, 'Super Rare': 3 }[rarity] || 1);
+    data.draft[id] = data.draft[id] ? Math.min(1000, data.draft[id] + 1) : initial;
     data.draftRarities[id] ||= byId.get(String(id)).rarity;
     notify(
       data.draftKind === "starter"
@@ -268,6 +271,7 @@ export default defineNuxtPlugin(async (nuxtApp) => {
       draftCover: pack.coverId || pack.entries[0]?.id || "",
       draftCost: pack.cost,
       draftSize: pack.size,
+      draftBoxPacks: pack.boxPacks || "",
       draftSource: pack.officialSource ? { ...pack.officialSource } : null,
       draftFormat: formatOf(pack),
       draft: Object.fromEntries(pack.entries.map((e) => [e.id, e.copies])),
@@ -280,7 +284,7 @@ export default defineNuxtPlugin(async (nuxtApp) => {
     Object.assign(data, {
       draft: {}, draftKind: 'pack', draftRarities: {}, editingPack: null,
       draftName: '', draftDescription: '', draftCover: '', draftCost: 5,
-      draftSize: 5, draftSource: null, draftFormat: data.activeFormat,
+      draftSize: 5, draftBoxPacks: 100, draftSource: null, draftFormat: data.activeFormat,
     });
   }
   function newProduct() {
