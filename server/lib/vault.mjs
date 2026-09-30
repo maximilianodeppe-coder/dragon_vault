@@ -5,14 +5,33 @@ import { openBox, Economy, random, grantStarter, changeDeck } from '../../app/ut
 import { addCopies } from '../../app/utils/inventory.js';
 import { transaction } from './database.mjs';
 import { fail, requireAdmin } from './auth.mjs';
+import { collectionActions, editCollection } from './admin-collection.mjs';
 
 const sharedKeys = ['formats', 'banlists', 'odds', 'boxes', 'economy'];
 const personalKeys = ['version', 'coins', 'owned', 'inventory', 'packs', 'decks', 'selectedSet'];
 const pick = (state, keys) => Object.fromEntries(keys.map(key => [key, state[key]]));
-export const worldState = state => pick(state, sharedKeys);
-export const personalState = state => pick(state, personalKeys);
+const boxSignature = pack => JSON.stringify([pack.formatId, pack.size, pack.entries.map(e => [e.id, e.copies, e.rarity])]);
+export function worldState(state) {
+  const shared = clone(pick(state, sharedKeys));
+  for (const pack of shared.economy.customPacks)
+    for (const entry of pack.entries) entry.remaining = entry.copies;
+  return shared;
+}
+export const personalState = state => ({ ...pick(state, personalKeys), packBoxes: Object.fromEntries(
+  state.economy.customPacks.filter(p => p.kind !== 'starter').map(p => [p.id, {
+    signature: boxSignature(p), remaining: p.entries.map(e => e.remaining),
+  }]),
+) });
 export function mergeState(personal, shared) {
   const state = { ...clone(personal), ...clone(shared) };
+  for (const pack of state.economy.customPacks) {
+    const box = personal.packBoxes?.[pack.id];
+    const same = box?.signature === boxSignature(pack);
+    pack.entries.forEach((entry, index) => {
+      entry.remaining = same && Number.isSafeInteger(box.remaining?.[index]) && box.remaining[index] >= 0 && box.remaining[index] <= entry.copies
+        ? box.remaining[index] : entry.copies;
+    });
+  }
   // Deleted lists do not strand other players' decks.
   for (const deck of state.decks) if (deck.banlistId && !state.banlists.some(b => b.id === deck.banlistId)) delete deck.banlistId;
   return state;
@@ -20,6 +39,9 @@ export function mergeState(personal, shared) {
 export function applyAction(state, body, user) {
   if (!body || typeof body.type !== 'string') fail(400, 'Acción no válida.');
   switch (body.type) {
+    case 'collectionGrant':
+    case 'collectionSet':
+    case 'collectionClear': return editCollection(state, body, user);
     case 'credit':
       requireAdmin(user);
       if (!Number.isSafeInteger(body.amount) || body.amount < 1 || body.amount > 1000000) fail(400, 'Cantidad no válida.');
@@ -29,6 +51,12 @@ export function applyAction(state, body, user) {
       if (!SETS.some(s => s.id === body.id)) fail(400, 'Caja no válida.');
       return openBox(state, body.id);
     case 'openCustom': return Economy.draw(state, allCards, body.id, random);
+    case 'resetCustom': {
+      const pack = state.economy.customPacks.find(p => p.id === body.id);
+      if (!pack || pack.status === 'draft' || pack.kind === 'starter') fail(400, 'Caja no disponible.');
+      for (const entry of pack.entries) entry.remaining = entry.copies;
+      return;
+    }
     case 'buy': return Economy.buy(state, allCards, body.id);
     case 'starter': {
       if (typeof body.createDeck !== 'boolean') fail(400, 'Selección no válida.');
@@ -100,7 +128,7 @@ export async function vaultTransaction(user, body) {
     const revision = `${world.revision}:${personal.revision}`;
     let result;
     if (body) {
-      if (body.type === 'adminCommit' || body.type === 'import') {
+      if (body.type === 'adminCommit' || body.type === 'import' || collectionActions.includes(body.type)) {
         requireAdmin(user);
         if (body.revision !== revision) fail(409, 'El estado cambió en otra sesión. Se actualizó la vista; revisá y repetí la operación.');
       }

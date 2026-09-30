@@ -9,6 +9,7 @@ export default defineEventHandler(async event => {
   if (path.startsWith('/catalog/')) fail(404, 'Recurso no disponible.');
   if (!path.startsWith('/api/')) return;
   setHeader(event, 'Cache-Control', 'no-store');
+  if (path === '/api/health' && ['GET', 'HEAD'].includes(event.method)) return;
   if (!['GET', 'HEAD'].includes(event.method)) {
     const origin = appOrigin(process.env.NODE_ENV !== 'production' ? getRequestURL(event).origin : '');
     if (getHeader(event, 'origin') !== origin || !getHeader(event, 'content-type')?.startsWith('application/json')) fail(403, 'Solicitud de origen no permitido.');

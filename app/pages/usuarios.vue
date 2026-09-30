@@ -1,5 +1,6 @@
 <script setup>
 const vault = useVault();
+const selectedUser = ref(null);
 const users = ref([]), username = ref(''), password = ref(''), role = ref('player'), busy = ref(false), error = ref(''), success = ref('');
 async function load() {
   try { users.value = await $fetch('/api/admin/users', { retry: 0 }); }
@@ -35,7 +36,8 @@ async function credit(user, event) {
 useHead({ title: 'Usuarios · Dragon Vault' });
 </script>
 <template>
-  <section class="users-page">
+  <AdminCollection v-if="selectedUser" :key="selectedUser.id" :user="selectedUser" @close="selectedUser = null" />
+  <section v-else class="users-page">
     <h1>Usuarios</h1><p>Creá cuentas y administrá el acceso a Dragon Vault.</p>
     <p v-if="error" class="vault-error" role="alert">{{ error }}</p><p v-if="success" role="status">{{ success }}</p>
     <form class="user-create" @submit.prevent="create">
@@ -52,6 +54,7 @@ useHead({ title: 'Usuarios · Dragon Vault' });
         <div><strong>{{ user.username }}</strong><p>{{ user.blocked ? 'Bloqueado' : 'Activo' }}{{ user.id === vault.data.auth.user.id ? ' · Tu cuenta' : '' }}</p></div>
         <label>Rol<select :value="user.role" :disabled="busy || user.id === vault.data.auth.user.id" @change="update(user, 'role', $event.target.value)"><option value="player">Jugador</option><option value="admin">Administrador</option></select></label>
         <button :disabled="busy || user.id === vault.data.auth.user.id" @click="update(user, 'blocked', !user.blocked)">{{ user.blocked ? 'Desbloquear' : 'Bloquear' }}</button>
+        <button :disabled="busy" :aria-label="'Administrar colección de ' + user.username" @click="selectedUser = user">Administrar colección</button>
         <form class="coin-grant" @submit.prevent="credit(user, $event)"><label>Monedas a agregar<input name="amount" type="number" min="1" max="1000000" step="1" required /></label><button :disabled="busy">Agregar monedas</button></form>
       </li>
     </ul>

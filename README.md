@@ -2,9 +2,11 @@
 
 Aplicación migrada a Nuxt 4, Vue 3 y Nuxt UI. Conserva las 422 cartas históricas, las imágenes, la identidad visual, la colección, el constructor de mazos, la economía, la tienda y los productos publicados. LOB, MRD, SRL, SDY y SDK ya no se ofrecen como compras incorporadas; sus datos históricos permanecen para conservar las adquisiciones anteriores.
 
-Ahora requiere cuentas y PostgreSQL. Implementa roles **administrador** y **jugador**, contraseñas con bcrypt (costo 12) y JWT de siete días en cookies HttpOnly y SameSite=Strict, Secure cuando se usa HTTPS. No existe registro público ni recuperación por correo. El catálogo y las API requieren sesión. Cada cuenta tiene sus monedas, colección y mazos; expansiones, ofertas, stock, precios, formatos y banlists son compartidos.
+Ahora requiere cuentas y PostgreSQL. Implementa roles **administrador** y **jugador**, contraseñas con bcrypt (costo 12) y JWT de siete días en cookies HttpOnly y SameSite=Strict, Secure cuando se usa HTTPS. No existe registro público ni recuperación por correo. El catálogo y las API requieren sesión. Cada cuenta tiene sus monedas, colección y mazos; las definiciones de expansiones, ofertas, stock de tienda, precios, formatos y banlists son compartidos. Las existencias de cada caja de sobres pertenecen a cada cuenta.
 
 ## Estado actual
+
+Las cajas de sobres tienen existencias independientes por cuenta. Abrir sobres descuenta solo de la caja del comprador; cualquier jugador puede usar **Reponer mi caja** cuando quiera, sin perder cartas ni monedas. Al actualizar desde cajas compartidas, cada cuenta recibe una caja completa, conservando su progreso. No requiere migración SQL: las existencias se guardan en el JSONB personal. Los precios, nombres y publicaciones siguen administrándose en común. Cambiar el contenido (cartas, cantidades, rarezas), tamaño de sobre o formato inicia una caja completa de esa nueva composición para cada cuenta; cambiar solo nombre o precio conserva sus existencias. Las ofertas de cartas sueltas de la tienda mantienen stock compartido.
 
 Actualizado el 26/09/2026. La instalación local persistente ya funciona en `http://127.0.0.1:3000` y la cuenta administradora `admin` existe y tiene acceso verificado. Su contraseña se conserva únicamente en `.data/local-access.txt`, fuera de Git. Están implementados RBAC, sesiones, economía compartida, importación de progreso, formatos, banlists y variantes históricas/post-errata. El despliegue público y la configuración de producción siguen pendientes.
 
@@ -23,7 +25,13 @@ Los binarios de PostgreSQL y la configuración privada de esta instalación no v
 1. Crear una base PostgreSQL vacía y copiar `.env.example` como `.env`. Configurar `DATABASE_URL`, un `JWT_SECRET` aleatorio de al menos 32 bytes y `APP_ORIGIN` con el origen exacto, sin barra final. En el servidor público usar HTTPS; HTTP solo se admite en localhost. Configurar TLS de PostgreSQL según el proveedor, sin deshabilitar la validación del certificado.
 2. Ejecutar `npm ci` y `npm run db:migrate`. Las tablas se crean explícitamente; el servidor no modifica el esquema al arrancar.
 3. Definir `ADMIN_USERNAME` y `ADMIN_PASSWORD` en el entorno privado o `.env`, ejecutar `npm run db:admin` y quitar esas dos variables después. El comando solo crea la primera cuenta administradora; nunca sustituye una cuenta existente. Usuario: 3–32 letras, números, punto, guion o guion bajo, sin distinguir mayúsculas. Contraseña: al menos 12 caracteres y hasta 72 bytes UTF-8 (límite de bcrypt).
-4. Ingresar con esa cuenta. **Usuarios** permite crear otras cuentas, asignar roles, bloquear/desbloquear y agregar monedas. Cada jugador empieza con 1.000 monedas. No se permite bloquearse ni quitarse el propio rol de administrador.
+4. Ingresar con esa cuenta. **Usuarios** permite crear otras cuentas, asignar roles, bloquear/desbloquear, agregar monedas y administrar sus colecciones. Cada jugador empieza con 1.000 monedas. No se permite bloquearse ni quitarse el propio rol de administrador.
+
+En **Usuarios → Administrar colección**, el administrador puede consultar todas las cartas de una cuenta, buscar por nombre, filtrar por formato y editar cantidades por origen y rareza. Puede entregar cartas del catálogo con formato y rareza elegidos (origen «Entrega administrativa», entre 1 y 1.000 copias por entrega). Esto no modifica las reglas de cartas permitidas ni consume existencias. Las copias entregadas conservan las reglas habituales de venta según rareza.
+
+Reducir una cantidad requiere confirmación y ajusta las cartas de los mazos al inventario disponible en cada formato. Una cantidad de cero retira ese lote. **Vaciar colección** exige escribir el nombre del usuario: elimina todas sus copias y vacía sus mazos, conservando sus nombres, monedas y cuenta; no se puede deshacer. Estas operaciones invalidan cualquier deshacer anterior de esa colección. No requieren que el usuario esté conectado, no bloquean su cuenta y no inician sesión como él. El servidor restringe estas API a administradores y rechaza cambios sobre una revisión antigua con 409 para evitar sobrescrituras. No se sincronizan bases locales y remotas.
+
+Pruebas de esta función: `node --env-file=.data/rbac-test.env --test tests/integration/admin-collection.mjs` y `node --env-file=.data/rbac-test.env node_modules/@playwright/test/cli.js test -c playwright.auth.config.js admin-collection.spec.js`, con el servidor de pruebas en `APP_ORIGIN` y una base aislada cuyo nombre termine en `_test`.
 
 Generar el secreto JWT localmente: `node -e "console.log(require('node:crypto').randomBytes(48).toString('base64url'))"`. No subir `.env` ni compartir contraseñas por el chat. El token no se guarda en localStorage. Se permiten varios dispositivos; **Salir** revoca solo la sesión actual. El vencimiento es fijo a los siete días desde el ingreso, sin renovación silenciosa. El servidor consulta el rol y bloqueo actuales; los controles de la interfaz reflejan cambios de rol al volver a ingresar. No se incluye una pantalla para cerrar todas las sesiones.
 
@@ -181,6 +189,10 @@ Se verifica compatibilidad de respaldos, reglas originales, bcrypt, vencimiento 
 El repositorio usa la rama `main` y el remoto `origin`: [maximilianodeppe-coder/Dragon_Vault](https://github.com/maximilianodeppe-coder/Dragon_Vault). El commit inicial reúne el código, los recursos, las pruebas y la documentación. `.gitignore` excluye `.env` y sus variantes privadas (conserva `.env.example`), `.data/`, `.tools/`, `.openai/`, dependencias, compilaciones, capturas de revisión y resultados de pruebas. `dist/` conserva el prototipo histórico usado en comparaciones y pruebas, no la compilación actual. Git no sustituye los backups de PostgreSQL ni traslada la cuenta administradora. Publicar el repositorio tampoco despliega la aplicación: una instalación nueva requiere configurar PostgreSQL y sus propias credenciales.
 
 ## Docker
+
+`GET /api/health` no requiere sesión y comprueba HTTP y una consulta `SELECT 1` a PostgreSQL. Responde **200** con `{"status":"ok"}` o **503** con `{"status":"unavailable"}`, sin detalles privados y con caché deshabilitada. No verifica el esquema ni reemplaza `db:migrate`.
+
+La imagen final incluye `HEALTHCHECK` usando Node, sin instalar curl. Docker consulta el endpoint cada 30 segundos, concede 30 segundos de arranque y marca el contenedor como `unhealthy` tras tres fallos. El Compose y Dockhand heredan este chequeo al descargar la nueva imagen, salvo que el stack lo sobrescriba. El estado `unhealthy` por sí solo no reinicia un contenedor con `restart: unless-stopped`.
 
 ### Docker Compose (app y PostgreSQL)
 

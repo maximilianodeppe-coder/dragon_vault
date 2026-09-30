@@ -31,16 +31,10 @@ function reset() {
   const id = props.pack.id;
   vault.confirm(
     "¿Reponer " + props.pack.name + "?",
-    "Se restauran todas las copias de esta caja. Tu colección y tus mazos se conservan.",
+    "Se restaura únicamente tu caja. Tu colección, tus mazos y las cajas de otras cuentas se conservan.",
     async () => {
       if (
-        (await vault.commit((s) =>
-          s.economy.customPacks
-            .find((p) => p.id === id)
-            .entries.forEach((e) => {
-              e.remaining = e.copies;
-            }),
-        )).ok
+        (await vault.request('resetCustom', { id })).ok
       )
         data.dialog = null;
     },
@@ -80,7 +74,7 @@ function reset() {
         </div>
       </div>
       <div class="box-status">
-        <span>Caja de copias limitadas</span
+        <span>Tu caja · existencias independientes</span
         ><strong>{{ Math.ceil(remaining / pack.size) }} sobres restantes</strong
         ><span>{{ remaining }} / {{ total }} cartas</span>
         <div class="progress">
@@ -88,7 +82,7 @@ function reset() {
         </div>
       </div>
       <div class="box-actions">
-        <button v-if="vault.isAdmin.value" @click="reset">Reponer caja</button>
+        <button :disabled="data.busy" @click="reset">Reponer mi caja</button>
       </div>
       <button
         class="primary"
